@@ -49,4 +49,5 @@ public class CommuteDTO {
 		this.reg_date = reg_date;
 	}
 	
+
 }
