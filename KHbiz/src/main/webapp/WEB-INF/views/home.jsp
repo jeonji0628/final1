@@ -44,7 +44,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 				
 					
                     <li>
-                        <a class="active-menu"  href="index"><i class="fa fa-dashboard fa-3x"></i> 전자결재</a>
+                        <a class="active-menu"  href="index"><i class="fa fa-dashboard fa-3x"></i> 근태관리</a>
                     </li>
                      <li>
                         <a href="ui"><i class="fa fa-desktop fa-3x"></i> 자원관리</a>
@@ -116,7 +116,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                     <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">120 New</p>
+                    <a href="note/noteList"><p class="main-text">120 New</p></a>
                     <p class="text-muted">Messages</p>
                 </div>
              </div>
