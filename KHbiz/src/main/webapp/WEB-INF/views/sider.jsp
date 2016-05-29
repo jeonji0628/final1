@@ -11,7 +11,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav " id="main-menu">
 					<li class="text-center">
-	                    <img src="./resources/img/find_user.png" class="user-image img-responsive"/>
+	                    <img src="<%= application.getContextPath() %>/resources/img/find_user.png" class="user-image img-responsive"/>
 					</li>	
                     <li>
                     	<div class="btn-group">
