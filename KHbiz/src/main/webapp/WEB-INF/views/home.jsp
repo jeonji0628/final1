@@ -27,13 +27,12 @@
 	<%@ include file="./sider.jsp" %>
         <div id="page-wrapper" >
             <div id="page-inner">             
-                 <!-- /. ROW  -->
                   <hr/>
                 <div class="row">
                 	<div class="col-md-3 col-sm-6 col-xs-6">           
 						<div class="panel panel-back noti-box">
                 			<span class="icon-box bg-color-red set-icon">
-                    			<i class="fa fa-envelope-o"></i>
+                    			<i class="fa fa-envelope-o icon_top"></i>
                 			</span>
 	                		<div class="text-box" >
 	                    		<p class="main-text">쪽지함</p>
@@ -44,7 +43,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 						<div class="panel panel-back noti-box">
 			                <span class="icon-box bg-color-green set-icon">
-			                    <i class="fa fa-bars"></i>
+			                    <i class="fa fa-calendar icon_top"></i>
 			                </span>
 			                <div class="text-box" >
 			                    <p class="main-text">일정</p>
@@ -55,7 +54,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 						<div class="panel panel-back noti-box">
 			                <span class="icon-box bg-color-blue set-icon">
-			                    <i class="fa fa-bell-o"></i>
+			                    <i class="fa fa-clock-o icon_top"></i>
 			                </span>
 			                <div class="text-box" >
 			                    <p class="main-text">출퇴근</p>
@@ -66,7 +65,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 						<div class="panel panel-back noti-box">
 			                <span class="icon-box bg-color-brown set-icon">
-			                    <i class="fa fa-rocket"></i>
+			                    <i class="fa fa-sign-in icon_top"></i>
 			                </span>
 			                <div class="text-box" >
 			                    <p class="main-text">전자결재</p>
@@ -81,7 +80,7 @@
                     <div class="col-md-6 col-sm-12 col-xs-12">           
 						<div class="panel panel-back noti-box">
 			                <span class="icon-box bg-color-blue">
-			                    <i class="fa fa-warning"></i>
+			                    <i class="fa fa-warning icon_top"></i>
 			                </span>
 			                <div class="text-box" >
 			                    <p class="main-text">공지사항</p>
@@ -93,7 +92,7 @@
 			             </div>
 			             <div class="panel panel-back noti-box">
 			                <span class="icon-box bg-color-blue">
-			                    <i class="fa fa-warning"></i>
+			                    <i class="fa fa-list-alt icon_top"></i>
 			                </span>
 			                <div class="text-box" >
 			                    <p class="main-text">부서 게시판</p>
@@ -108,7 +107,7 @@
                     
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel back-dash">
-                              <i class="fa fa-dashboard fa-3x"></i>
+                              <i class="fa fa-users fa-3x icon_top"></i>
                               <strong> &nbsp; 프로젝트</strong>
                               <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing sit ametsit amet elit ftr. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                         </div>
@@ -118,7 +117,7 @@
 				          <div class="main-temp-back">
 				            <div class="panel-body">
 				              <div class="row">
-				                <div class="col-xs-6"> <i class="fa fa-cloud fa-3x"></i> Newyork City </div>
+				                <div class="col-xs-6"> <i class="fa fa-cloud fa-3x icon_top"></i> Newyork City </div>
 				                <div class="col-xs-6">
 				                  <div class="text-temp"> 10° </div>
 				                </div>
@@ -129,7 +128,7 @@
 				        </div>
 				        <div class="panel panel-back noti-box">
 			                <span class="icon-box bg-color-green set-icon">
-			                    <i class="fa fa-desktop"></i>
+			                    <i class="fa fa-stack-overflow icon_top"></i>
 			                </span>
 			                <div class="text-box" >
 			                    <p class="main-text">자원 관리</p>

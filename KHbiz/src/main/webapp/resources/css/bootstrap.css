@@ -5778,4 +5778,8 @@ button.close {
     display: none !important;
   }
 }
+
+.icon_top{
+	padding-top: 15px;
+}
 /*# sourceMappingURL=bootstrap.css.map */
