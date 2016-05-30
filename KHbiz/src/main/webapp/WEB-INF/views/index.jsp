@@ -38,7 +38,7 @@
 			<p>KHbiz 그룹웨어에 오신것을 환영합니다.</p>
 		</div>
 		<div id="login">
-			<form action="member/memberLogin" method="post">
+			<form action="memberLogin" method="post">
 				ID: <input type="text" name="id">
 				PW: <input type="password" name="pw">
 				<input type="submit" value="로그인">

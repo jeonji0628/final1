@@ -27,5 +27,10 @@ public class HomeController {
 		//index Page로 이동
 		return "index";
 	}
+	
+	@RequestMapping(value = "/memberLogin")
+	public String memberLogin(){
+		return "member/memberLogin";
+	}
 
 }

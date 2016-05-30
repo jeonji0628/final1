@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
 			System.out.println("memberlogin : memberservice 들어옴");
 			memberDTO = memberDAO.login(memberDTO);
 			
-			System.out.println(memberDTO.getId());
+			/*System.out.println(memberDTO.getId());*/
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
