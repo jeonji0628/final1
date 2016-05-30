@@ -23,7 +23,7 @@
 			<div id="mid_left">
 				<div id="loginForm">
 					<div id="loginForm2">
-						<form action="member/memberLogin" method="post">
+						<form action="./memberLogin" method="post">
 							<table id="table1" >
 								<tr>
 									<td ><img src="./resources/img/ch_id_title.gif"></td>
@@ -65,7 +65,6 @@
 					<a href="#"><img src="./resources/img/ch_select_bg.gif"></a>
 				</div>
 			</div>
-		</div>
 	</div>
 </body>
 </html>

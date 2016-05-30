@@ -11,15 +11,13 @@ import com.KHbiz.member.MemberDTO;
 import com.KHbiz.member.MemberService;
 
 @Controller
-@RequestMapping("/member/*")
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
 	public String memberlogin(@ModelAttribute MemberDTO memberDTO, Model model ){
-		System.out.println("memberLogin");
-		
+		System.out.println("들어옴");
 		memberDTO = memberService.login(memberDTO);
 		model.addAttribute("member", memberDTO);
 		

@@ -28,4 +28,9 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/memberLogin")
+	public String memberLogin(){
+		return "member/memberLogin";
+	}
+
 }

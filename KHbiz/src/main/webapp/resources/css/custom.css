@@ -376,4 +376,11 @@ line-height: 1.428571429;
    
 }
 
+.side ul{
+		display: none;
+	}
+.side:HOVER ul{
+		display: block;
+	}
+
 
