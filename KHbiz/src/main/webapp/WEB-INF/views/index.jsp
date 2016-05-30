@@ -65,6 +65,7 @@
 					<a href="#"><img src="./resources/img/ch_select_bg.gif"></a>
 				</div>
 			</div>
+		</div>
 	</div>
 </body>
 </html>
