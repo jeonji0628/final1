@@ -15,10 +15,8 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) {
 		try {
-			System.out.println("memberlogin : memberservice 들어옴");
 			memberDTO = memberDAO.login(memberDTO);
 			
-			System.out.println(memberDTO.getId());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -14,7 +14,6 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {
-		System.out.println("memberlogin dao 들어옴");
 		return sqlSession.selectOne(namespace+"login", memberDTO);
 	}
 }
