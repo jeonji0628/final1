@@ -21,7 +21,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/boardUpdate",method=RequestMethod.GET)
 	public void updateForm(@RequestParam int num, Model model){
-		System.out.println(num);
 		boardService.boardView(num,model);
 	}
 	

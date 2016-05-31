@@ -14,7 +14,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void boardUpdate1(BoardDTO boardDTO) {
 		try {
-			System.out.println("서비스");
 			boardDAO.boardUpdate1(boardDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
