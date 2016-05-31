@@ -96,7 +96,7 @@
 			                    <i class="fa fa-warning"></i>
 			                </span>
 			                <div class="text-box" >
-			                    <p class="main-text">부서 게시판</p>
+			                    <a href="./board/boardList?kind=1&curPage=1"><p class="main-text">부서 게시판</p></a>
 			                    <p class="text-muted">Please fix these issues to work smooth</p>
 			                    <p class="text-muted">Time Left: 30 mins</p>
 			                    <hr/>
