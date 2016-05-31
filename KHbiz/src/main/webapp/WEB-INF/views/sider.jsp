@@ -5,46 +5,116 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.side ul{
+		display: none;
+	}
+	.side:HOVER ul{
+		display: block;
+	}
+</style>
 </head>
 <body>
 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav " id="main-menu">
 					<li class="text-center">
-	                    <img src="./resources/img/find_user.png" class="user-image img-responsive"/>
+	                    <img src="<%= application.getContextPath() %>/resources/img/find_user.png" class="user-image img-responsive"/>
 					</li>	
-                    <li>
-                    	<div class="btn-group">
-						  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						    	<i class="fa fa-dashboard fa-3x"></i>출퇴근 관리 <span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu" role="menu">
-						    <li><a href="#">Action</a></li>
-						    <li><a href="#">Another action</a></li>
-						    <li><a href="#">Something else here</a></li>
-						    <li class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						  </ul>
-						</div>
-                        <!-- <a class="active-menu"  href="home"><i class="fa fa-dashboard fa-3x"></i>출퇴근 관리 </a> -->
-                    </li>
-                     <li>
-                        <a href="resource"><i class="fa fa-desktop fa-3x"></i> 자원관리</a>
-                    </li>
-                    <li>
-                        <a href="today-schedule"><i class="fa fa-qrcode fa-3x"></i> 일일 업무일지</a>
-                    </li>
-					<li>
-                        <a href="commute"><i class="fa fa-bar-chart-o fa-3x"></i>전자결재 </a>
-                    </li>	
-                      <li >
-                        <a href="project"><i class="fa fa-table fa-3x"></i> 프로젝트</a>
-                    </li>
-                    <li>
-                        <a href="letter"><i class="fa fa-edit fa-3x"></i> 쪽지함</a>
-                    </li>				   
-                    <li>
-                        <a href="schedule"><i class="fa fa-sitemap fa-3x"></i> 조직구성<span class="fa arrow"></span></a>
+                    <li class="side">
+                        <a><i class="fa fa-clock-o fa-3x"></i> 출퇴근 관리<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">출퇴근 입력</a>
+                            </li>
+                            <li>
+                                <a href="#">출퇴근 조회</a>
+                            </li>
+                            <li>
+                                <a href="#">출퇴근 통계</a>
+                            </li>
+                        </ul>
+                     </li>
+                    <li class="side">
+                        <a><i class="fa fa-file-text-o fa-3x"></i> 일일 업무일지<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">개인 업무일지</a>
+                            </li>
+                            <li>
+                                <a href="#">부서 업무일지</a>
+                            </li>
+                        </ul>
+                     </li>
+					<li class="side">
+                        <a><i class="fa fa-stack-overflow fa-3x"></i> 자원관리<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">자원목록</a>
+                            </li>
+                            <li>
+                                <a href="#">나의사용 내역</a>
+                            </li>
+                        </ul>
+                     </li>
+                    <li class="side">
+                        <a><i class="fa fa-sign-in fa-3x"></i> 전자결재<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">걸재 상신</a>
+                            </li>
+                            <li>
+                                <a href="#">결재 진행 조회</a>
+                            </li>
+                            <li>
+                                <a href="#">결재 완료함</a>
+                            </li>
+                        </ul>
+                     </li>
+                     <li class="side">
+                        <a><i class="fa fa-users fa-3x"></i> 프로젝트<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">프로젝트 등록</a>
+                            </li>
+                            <li>
+                                <a href="#">진행 프로젝트</a>
+                            </li>
+                            <li>
+                                <a href="#">완료 프로젝트</a>
+                            </li>
+                        </ul>
+                     </li>
+                     <li class="side">
+                        <a><i class="fa fa-envelope-o fa-3x"></i> 쪽지함<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">받은 쪽지함</a>
+                            </li>
+                            <li>
+                                <a href="#">보낸 쪽지함</a>
+                            </li>
+                        </ul>
+                     </li>
+                    <li class="side">
+                        <a><i class="fa fa-sitemap fa-3x"></i> 조직구성<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                        	<li>
+                                <a href="#">부서 관리</a>
+                            </li>
+                            <li>
+                                <a href="#">부서별 사원관리</a>
+                            </li>
+                            <li>
+                                <a href="organizationChart/allChart">사원 전체보기</a>
+                            </li>
+                            <li>
+                                <a href="#">직급관리</a>
+                            </li>
+                        </ul>
+                      </li>
+                      <li class="side">
+                        <a><i class="fa fa-calendar fa-3x"></i> 일정관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="#">개인 일정</a>
@@ -54,15 +124,31 @@
                             </li>
                         </ul>
                       </li>
-                       <li>
-                        <a  href="concent"><i class="fa fa-square-o fa-3x"></i> 일정관리</a>
+                      <li class="side">
+                        <a><i class="fa fa-list-alt fa-3x"></i> 게시판<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">부서 게시판</a>
+                            </li>
+                            <li>
+                                <a href="#">사내 게시판</a>
+                            </li>
+                        </ul>
                       </li>
-                  	  <li>
-                        <a  href="concent"><i class="fa fa-square-o fa-3x"></i> 콘센트 제어</a>
-                      </li>
-                      <li>
-                        <a  href="concent"><i class="fa fa-square-o fa-3x"></i> 게시판</a>
-                      </li>		
+						<li class="side">
+                        <a><i class="fa fa-wrench fa-3x"></i> 콘센트 제어<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                           <li>
+                                <a href="#">콘센트 등록</a>
+                            </li>
+                            <li>
+                                <a href="#">등록 내역</a>
+                            </li>
+                            <li>
+                                <a href="#">온/오프 제어</a>
+                            </li>
+                        </ul>
+                      </li>                   
                 </ul>
             </div>
         </nav>  
