@@ -11,6 +11,14 @@ public class BoardDTO {
 	private Date reg_date;
 	private int counts;
 	private String kind; //1=부서게시판, 2=사내게시판
+	private int ref;
+	
+	public int getRef() {
+		return ref;
+	}
+	public void setRef(int ref) {
+		this.ref = ref;
+	}
 	public int getNum() {
 		return num;
 	}

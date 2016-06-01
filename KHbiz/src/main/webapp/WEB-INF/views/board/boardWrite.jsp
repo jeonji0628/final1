@@ -12,7 +12,7 @@
 <h2>글쓰기</h2>
 <form action="boardWrite" method="post">
 		<input type="hidden" name="kind" value="${param.kind}">
-		작성자 : <input type="text" name="id"><br><!--value="${member.id}"   -->
+		작성자 : <input type="text" name="id" value="${member.id}"><br>
 		제목 : <input type="text" name="title"><br>
 		내용 : <textarea rows="" cols="" name="contents"></textarea><br>
 		<input type="submit" value="글쓰기">

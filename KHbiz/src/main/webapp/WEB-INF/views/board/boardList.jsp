@@ -5,16 +5,59 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시판</title>
+ <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="<%= application.getContextPath() %>/resources/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="<%= application.getContextPath() %>/resources/js/bootstrap.min.js" type="text/javascript"></script>
+	<title>게시판</title>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- BOOTSTRAP STYLES-->
+    <link href="<%= application.getContextPath() %>/resources/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="<%= application.getContextPath() %>/resources/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="<%= application.getContextPath() %>/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="<%= application.getContextPath() %>/resources/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   	<style type="text/css">
+   		#boardBody{
+   			width: 1250px;
+   			height: 1250px;
+   			margin: 0 auto;
+   		}
+   		
+   		#boardTable{
+   			width: 1000px;
+   			margin: 0 auto;
+   		}
+   	
+   	#boardSearchDiv{
+   		width: 1000px;
+   		margin: 0 auto;
+   	}
+   	
+   	#boardPaging{
+   		width: 1000px;
+   		margin: 0 auto;
+   	}
+   	
+   	</style>
 </head>
 <body>
+<header><%@ include file="../header.jsp" %></header>
+	<%@ include file="../sider.jsp" %>
+
+<div id="boardBody">
 	<h2>게시판</h2>
 	
-<table>
+<table id="boardTable">
 	<thead>
 		<tr><th>번호</th><th>내용</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
     </thead>
@@ -29,42 +72,54 @@
 				<td>${dto.counts}</td>
 				<td>${dto.reg_date}</td>
 			</tr>
-		</c:forEach>
+		</c:forEach>	
 	</tbody>
 </table>	
 
-
 <!-- ----------------페이징 ---------------------->
-	<div>
+<div id="boardPaging">	
 	<c:if test="${page.curBlock > 1}">
-		<a href="./boardList?curPage=${page.startNum-1}">[이전]</a>
+		<a href="./boardList?curPage=${page.startNum-1}&kind=${page.kind}">[이전]</a>
 	</c:if>
 	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-		<a href="./boardList?curPage=${i}">${i}</a>
+		<a href="./boardList?curPage=${i}&kind=${page.kind}">${i}</a>
 	</c:forEach>
 	<c:if test="${page.lastNum < page.totalBlock}">
-		<a href="./boardList?curPage=${page.lastNum+1}">[다음]</a>
+		<a href="./boardList?curPage=${page.lastNum+1}&kind=${page.kind}">[다음]</a>
 	</c:if>
 </div>
 
 <form action="boardWrite" method="get">
 <input type="hidden" name="kind" value="${page.kind}">
+<input type="hidden" id="id" value="${member.id}">
 <input type="submit" name="write" id="write" value="글쓰기">
-</form>
-	
+</form>	
 	
 	<!----------------검색 -------------------- -->
-<!-- <div>
-	<form action="./search" method="get">
+<div id="boardSearchDiv">
+	<form action="search" method="get">
 		<select name="searchType">
-			<option value="writer">작성자</option>
+			<option value="id">작성자</option>
 			<option value="title">제목</option>
 			<option value="contents">내용</option>
 		</select>
-		<input type="text" name="searchWord">
-		<input type="submit" value="SEARCH">
+		<input type="hidden" value="${page.kind}" name="kind">
+		<input type="text" name="searchWord" id="searchText">
+		<input type="submit" value="SEARCH" id="search" onclick="return check()">
 	</form>
-</div> -->
-</body>
+</div> 
 
+</div>
+</body>
+<script type="text/javascript">
+	function check(){
+		var searchWord = $("#searchText").val();
+		if(searchWord == ""){
+			alert("검색어를 입력해주세요");
+			return false;
+		}else{
+			return true;
+		}
+	}
+</script>
 </html>

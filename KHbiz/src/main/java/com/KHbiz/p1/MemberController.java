@@ -17,7 +17,6 @@ public class MemberController {
 	
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
 	public String memberlogin(@ModelAttribute MemberDTO memberDTO, Model model ){
-		System.out.println("들어옴");
 		memberDTO = memberService.login(memberDTO);
 		model.addAttribute("member", memberDTO);
 		

@@ -12,14 +12,49 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDAO;
 	
 	@Override
+	public void replyView(int num, Model model) {
+		try {
+			model.addAttribute("reply",boardDAO.replyView(num));			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	@Override
+	public void reply(ReplyDTO replyDTO) {
+		try {
+			boardDAO.reply(replyDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	@Override
 	public void boardUpdate1(BoardDTO boardDTO) {
 		try {
 			boardDAO.boardUpdate1(boardDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
+	}
+	
+	@Override
+	public void search(BoardSearchType boardSearchType, Model model,String kind) {
+		try {
+			boardSearchType.setKind(kind);
+			model.addAttribute("list",boardDAO.search(boardSearchType));
+			int totalList = boardDAO.totalList(kind);
+			int curPage=1;
+			MakePage p = new MakePage(curPage,totalList);
+			p.setKind(kind);
+			model.addAttribute("page",p);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
 	@Override
@@ -29,8 +64,7 @@ public class BoardServiceImpl implements BoardService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 	}
 	
 	@Override
@@ -67,7 +101,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void list(int curPage, Model model, String kind) {
 		try {
-			int totalList = boardDAO.totalList();
+			int totalList = boardDAO.totalList(kind);
 			MakePage p = new MakePage(curPage, totalList);
 			p.setKind(kind);
 			model.addAttribute("page",p);
@@ -76,7 +110,5 @@ public class BoardServiceImpl implements BoardService {
 			e.printStackTrace();
 		}
 		
-	}
-	
-	
+	}	
 }
