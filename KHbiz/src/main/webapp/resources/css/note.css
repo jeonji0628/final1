@@ -1,6 +1,140 @@
 @CHARSET "UTF-8";
-
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
-}
+	a{
+		color: gray;
+	}
+	a:HOVER{
+		color: gray;
+	}
+	#btn_div{
+   		height: 40px;
+   		width : 100%;
+   	}
+   	#btn_div2{
+   		height: 40px;
+   		width : 600px;
+   	}
+   	#btn1{
+   		width : 80px;
+   		height : 35px;
+   		float: right;
+   		background-color: #d2322d;
+   		border-color: white;
+   		color: white;
+   	}
+   	#btn2{
+   		width : 80px;
+   		height : 35px;
+   		float: right;
+   		background-color: #d2322d;
+   		border-color: white;
+   		color: white;
+   		margin-right: 10px;
+   	}
+   	.btn3{
+   		width : 80px;
+   		height : 35px;
+   		float: right;
+   		background-color: #d2322d;
+   		border-color: white;
+   		color: white;
+   		margin-right: 10px;
+   	}
+   	#notice_table{
+   		text-align: center;
+   	}
+   	#textarea{
+   		overflow: hidden;
+   		resize : none;
+   	}	
+   	#search_btn{
+   		background-color: white;
+   	}
+   	table1{
+       text-align: center;
+    }
+    .table-colname{
+       height: 50px; 
+       font-weight: bold;
+    }
+    .table-size{
+       width: 900px;
+       height: 800px;
+       margin: 0 auto;
+    }
+    .table-responsive2{
+   	   width: 600px;
+       height: 365px;
+    }
+   
+    .table-size2{
+       width: 900px;
+       height: 800px;
+       margin: 0 auto;
+    }
+    .table-up{
+       height: 60px;
+       margin-top: 5px;
+       padding-top : 13px;
+       border-radius : 5px;
+    }
+    .table-down{
+       height: 70px;
+       text-align: center;   
+       border-radius : 5px;
+    }
+    .select{
+       width : 100px;   
+       height : 35px;
+       float: left;
+       border-radius : 3px;
+    }
+    #note_check{
+    	width: 55px;
+    }
+    #note_sendid{
+    	width: 150px;
+    }
+    #note_date{
+    	width: 150px;
+    }
+    #note_contents{
+    	width: 544px;
+    }
+    input[type=checkbox]{
+   	  -ms-transform: scale(1.2); /* IE */
+	  -moz-transform: scale(1.2); /* FF */
+	  -webkit-transform: scale(1.2); /* Safari and Chrome */
+	  -o-transform: scale(1.2); /* Opera */
+	  padding: 10px;
+    }
+    .note_title{
+		width: 90px;
+	}
+	#note_input input{
+		width: 300px;
+	}
+	#note_temp{
+		width: 30px;
+	}
+	#btn_search{
+		height: 34px;
+		border-radius: 0px 5px 5px 0px;
+	}
+	#contents{
+		overflow:hidden;
+		resize : none;
+	}
+	#myModalLabel{
+		font-family: "돋움";
+	}
+	#note_input input{
+		width: 211px;
+		border-right: none; 
+	}
+	#btn4{
+		height: 34px;
+	}
+	#title{
+		margin-left: 14px;
+   	 	width: 474px;
+	}
