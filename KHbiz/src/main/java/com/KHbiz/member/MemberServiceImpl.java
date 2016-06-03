@@ -1,24 +1,75 @@
 package com.KHbiz.member;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired	
 	private MemberDAO memberDAO;
+	private int perpage = 10;
+	
+	@Override
+	public void ChangeChart(MemberDTO memberDTO) {
+		try {
+			memberDAO.changeChart(memberDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void searchChart(int curpage,String search, String text,Model model) {
+		HashMap<String, String> hs = new HashMap<String, String>();
+		hs.put("search", search);
+		hs.put("text", text);
+		List<MemberDTO> ar = null;
+		/*Paging paging = null;*/
+		try {
+			ar = memberDAO.searchChart(hs);
+			int total = ar.size();
+			Paging paging = new Paging(curpage, perpage, total);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("result", ar);
+	}
+	
+	@Override
+	public void AllChart(int curpage, Model model) {
+		List<MemberDTO> ar = null;
+		int start = (curpage-1) * perpage;
+		int last = curpage * perpage;
+		HashMap<String, Integer> hs = new HashMap<String, Integer>();
+		hs.put("start", start);
+		hs.put("last", last);
+		Paging paging = null;
+		try {
+			ar =  memberDAO.AllChart(hs);
+			int total = memberDAO.PagingChart();
+			paging = new Paging(curpage, perpage, total);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("chart",ar);
+		model.addAttribute("paging", paging);
+	}
 	
 	//로그인
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) {
 		try {
-			System.out.println("memberlogin : memberservice 들어옴");
 			memberDTO = memberDAO.login(memberDTO);
-			
-			/*System.out.println(memberDTO.getId());*/
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

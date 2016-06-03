@@ -4,8 +4,42 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberMapper">
 
+
 	<select id="login" resultType="com.KHbiz.member.MemberDTO">
 		select * from member where id=#{id} and pw = #{pw}
 	</select>
 	
+	<select id="AllChart" resultType="com.KHbiz.member.MemberDTO">
+		select * from 
+  	 	(select rownum R, A.* from 
+  	 	(select * from member) A) 
+  	 	where R between #{start} and #{last}
+	</select>
+	
+	<select id="PagingChart" resultType="int">
+		select count(id) from member
+	</select>
+	
+	<select id="searchChart" resultType="com.KHbiz.member.MemberDTO" >
+		select * from member where 
+		<if test="search == 'id'">
+			id like '%${text}%'
+		</if>
+		<if test="search == 'email'">
+			email like '%${text}%'
+		</if>
+		<if test="search == 'position'">
+			position = '%${text}%'
+		</if>
+		<if test="search == 'job'">
+			job = '%${text}%'
+		</if>
+		<if test="search == 'division'">
+			division = '%${text}%'
+		</if>
+	</select>
+	
+	<update id="changeChart">
+		update member set name=#{name}, email=#{email}, division=#{division}, position=#{position}, job=#{job} where id=#{id}
+	</update>
 </mapper>

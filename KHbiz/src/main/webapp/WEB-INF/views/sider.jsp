@@ -61,7 +61,7 @@
                         <a><i class="fa fa-sign-in fa-3x"></i> 전자결재<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">걸재 상신</a>
+                                <a href="<%=application.getContextPath()%>/approval/approvalRegister">걸재 상신</a>
                             </li>
                             <li>
                                 <a href="#">결재 진행 조회</a>
@@ -103,10 +103,10 @@
                                 <a href="#">부서 관리</a>
                             </li>
                             <li>
-                                <a href="#">부서별 사원관리</a>
+                                <a href="<%=application.getContextPath()%>/organizationChart/divisionChart?curpage=1">부서별 사원관리</a>
                             </li>
                             <li>
-                                <a href="organizationChart/allChart">사원 전체보기</a>
+                                <a href="<%=application.getContextPath()%>/organizationChart/allChart?curpage=1">사원 전체보기</a>
                             </li>
                             <li>
                                 <a href="#">직급관리</a>

@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home">KHbiz Group</a> 
+                <a class="navbar-brand" href="<%=application.getContextPath()%>/home">KHbiz Group</a> 
             </div>
 		  <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
 		  	${member.id }님 환영합니다&nbsp; 

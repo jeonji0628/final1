@@ -1409,7 +1409,8 @@ th {
 }
 .table {
   width: 100%;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -2247,6 +2248,7 @@ fieldset[disabled] .btn-warning.active {
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;
+  
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -3297,6 +3299,7 @@ input[type="button"].btn-block {
   position: relative;
   display: table;
   border-collapse: separate;
+  width: 75%;
 }
 .input-group[class*="col-"] {
   float: none;
@@ -4130,7 +4133,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination {
   display: inline-block;
   padding-left: 0;
-  margin: 20px 0;
+  margin : 0;
   border-radius: 4px;
 }
 .pagination > li {
@@ -4143,7 +4146,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
-  color: #428bca;
+  color: black;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -5146,7 +5149,7 @@ button.close {
 }
 .modal-header {
   min-height: 16.42857143px;
-  padding: 15px;
+  padding: 5px;
   border-bottom: 1px solid #e5e5e5;
 }
 .modal-header .close {
@@ -5158,11 +5161,11 @@ button.close {
 }
 .modal-body {
   position: relative;
-  padding: 20px;
+  padding: 0px;
 }
 .modal-footer {
   padding: 19px 20px 20px;
-  margin-top: 15px;
+  margin-top: 0px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
@@ -5178,8 +5181,8 @@ button.close {
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
-    margin: 30px auto;
+    width: 1000px;
+    margin: 250px auto;
   }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);

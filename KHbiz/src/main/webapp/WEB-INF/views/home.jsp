@@ -75,7 +75,7 @@
 		     		</div>
 				</div>
                  <!-- /. ROW  -->
-                <hr />                
+                <hr />              
                 <div class="row">
                     <div class="col-md-6 col-sm-12 col-xs-12">           
 						<div class="panel panel-back noti-box">
