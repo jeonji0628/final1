@@ -16,7 +16,7 @@
 	<select id="noteList" resultType="com.KHbiz.note.NoteDTO">
 		select * from
   	    (select rownum R, A.* from
-  		(select * from note order by num desc) A ) 
+  		(select * from note where  order by num desc) A ) 
   		where R between #{startRow} and #{lastRow}
 	</select>
 	
