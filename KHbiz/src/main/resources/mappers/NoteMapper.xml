@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoteMapper">
+
+	<select id="search" resultType="com.KHbiz.member.MemberDTO">
+		select * from member where name like '%${name}%'
+	</select>
+	
+	<insert id="noteSend" parameterType="com.KHbiz.note.NoteDTO" >
+		insert into NOTE values(seq_note.nextVal, #{send_id}, 
+		#{to_id}, #{title}, #{contents}, '0', sysdate, #{division}, #{position})
+	</insert>
+	
+	<select id="noteList" resultType="com.KHbiz.note.NoteDTO">
+		select * from
+  	    (select rownum R, A.* from
+  		(select * from note order by num desc) A ) 
+  		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(num) from note
+	</select>
+</mapper>

@@ -1,0 +1,15 @@
+create table note(
+	num number(10),
+	send_id varchar2(300),
+	to_id varchar2(300),
+	title varchar2(300),
+	contents varchar2(3000),
+	state number(3),
+	reg_date date,
+	position varchar2(200),
+	division varchar2(200)
+)
+
+select * from NOTE
+
+insert into NOTE values(seq_note.nextVal, 'member1', 'admin', '공지사항', '공지사항입니다', '0', sysdate);
