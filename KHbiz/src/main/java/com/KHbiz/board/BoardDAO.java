@@ -4,13 +4,17 @@ import java.util.List;
 
 public interface BoardDAO {
 	
+	/*public int replyNum() throws Exception;*/
+	
+	/*public int searchTotalList(MakePage mp) throws Exception;*/
+	
 	public void reply(ReplyDTO replyDTO) throws Exception;
 	
 	public List<ReplyDTO> replyView(int num) throws Exception;
 
-	public List<BoardDTO> search(BoardSearchType boardSearchType) throws Exception;
-	
-	public List<BoardDTO> list(MakePage p) throws Exception;
+	public List<BoardDTO> search(MakePage mp) throws Exception;
+
+	public List<BoardDTO> list(MakePage mp) throws Exception;
 	
 	public int totalList(String kind) throws Exception;
 	

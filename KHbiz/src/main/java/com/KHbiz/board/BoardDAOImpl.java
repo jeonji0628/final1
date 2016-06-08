@@ -21,14 +21,26 @@ public class BoardDAOImpl implements BoardDAO {
 		return ar;
 	}
 	
+	/*@Override
+	public int searchTotalList(MakePage mp) throws Exception {
+		int result = sqlSession.selectOne(Namespace+"totalList",mp);
+		return result;
+	}*/
+	
+	/*@Override
+	public int replyNum() throws Exception {
+		
+		return 0;
+	}*/
+	
 	@Override
 	public void reply(ReplyDTO replyDTO) throws Exception {
 		sqlSession.insert(Namespace+"reply",replyDTO);
 	}
 	
 	@Override
-	public List<BoardDTO> search(BoardSearchType boardSearchType) throws Exception {
-		List<BoardDTO> ar = sqlSession.selectList(Namespace+"search",boardSearchType);
+	public List<BoardDTO> search(MakePage mp) throws Exception {
+		List<BoardDTO> ar = sqlSession.selectList(Namespace+"search",mp);
 		return ar;
 	}
 	
@@ -43,7 +55,9 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
-	public BoardDTO boardView(int num) throws Exception {		
+	public BoardDTO boardView(int num) throws Exception {
+		
+		sqlSession.update(Namespace+"countsUp",num);
 		return sqlSession.selectOne(Namespace+"boardView",num);
 	}
 	
@@ -54,8 +68,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
-	public List<BoardDTO> list(MakePage p) throws Exception {
-		List<BoardDTO> ar = sqlSession.selectList(Namespace+"list",p);
+	public List<BoardDTO> list(MakePage mp) throws Exception {
+		List<BoardDTO> ar = sqlSession.selectList(Namespace+"list",mp);
 		return ar;
 	}
 	
@@ -63,5 +77,7 @@ public class BoardDAOImpl implements BoardDAO {
 	public int totalList(String kind) throws Exception {
 		return sqlSession.selectOne(Namespace+"totalList",kind);
 	}
+	
+	
 	
 }

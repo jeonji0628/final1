@@ -11,6 +11,12 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO boardDAO;
 	
+	/*@Override
+	public void replyNum() {
+		
+		
+	}*/
+	
 	@Override
 	public void replyView(int num, Model model) {
 		try {
@@ -41,21 +47,7 @@ public class BoardServiceImpl implements BoardService {
 		}		
 	}
 	
-	@Override
-	public void search(BoardSearchType boardSearchType, Model model,String kind) {
-		try {
-			boardSearchType.setKind(kind);
-			model.addAttribute("list",boardDAO.search(boardSearchType));
-			int totalList = boardDAO.totalList(kind);
-			int curPage=1;
-			MakePage p = new MakePage(curPage,totalList);
-			p.setKind(kind);
-			model.addAttribute("page",p);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-	}
+	
 	
 	@Override
 	public void boardUpdate(int num, Model model) {
@@ -97,6 +89,21 @@ public class BoardServiceImpl implements BoardService {
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public void search(MakePage mp, Model model,String kind,int curPage) {
+		try {
+			model.addAttribute("list",boardDAO.search(mp));			
+			mp.setKind(kind);
+			int searchTotalList = boardDAO.totalList(kind);
+			mp.setCurPage(curPage);
+			mp.setTotalList(searchTotalList);
+			model.addAttribute("page",mp);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
 		
 	@Override
 	public void list(int curPage, Model model, String kind) {
@@ -104,11 +111,27 @@ public class BoardServiceImpl implements BoardService {
 			int totalList = boardDAO.totalList(kind);
 			MakePage p = new MakePage(curPage, totalList);
 			p.setKind(kind);
+			p.setCurPage(curPage);
 			model.addAttribute("page",p);
 			model.addAttribute("list",boardDAO.list(p));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public void list(int curPage, Model model, String kind, MakePage mp) {
+		// TODO Auto-generated method stub
+		try {
+			int totalList = boardDAO.totalList(kind);
+			mp.setKind(kind);
+			mp.setCurPage(curPage);
+			mp.setTotalList(totalList);
+			model.addAttribute("page",mp);
+			model.addAttribute("list",boardDAO.list(mp));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}	
 }

@@ -48,6 +48,11 @@
    		margin: 0 auto;
    	}
    	
+   	#boardListWrite{
+   		width: 800px;
+   		float: right;
+   	}
+   	
    	</style>
 </head>
 <body>
@@ -81,15 +86,17 @@
 	<c:if test="${page.curBlock > 1}">
 		<a href="./boardList?curPage=${page.startNum-1}&kind=${page.kind}">[이전]</a>
 	</c:if>
-	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
+
+	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i" >
 		<a href="./boardList?curPage=${i}&kind=${page.kind}">${i}</a>
 	</c:forEach>
-	<c:if test="${page.lastNum < page.totalBlock}">
+
+	<c:if test="${page.curBlock < page.totalBlock}">
 		<a href="./boardList?curPage=${page.lastNum+1}&kind=${page.kind}">[다음]</a>
 	</c:if>
 </div>
 
-<form action="boardWrite" method="get">
+<form action="boardWrite" method="get" id="boardListWrite">
 <input type="hidden" name="kind" value="${page.kind}">
 <input type="hidden" id="id" value="${member.id}">
 <input type="submit" name="write" id="write" value="글쓰기">
@@ -103,6 +110,7 @@
 			<option value="title">제목</option>
 			<option value="contents">내용</option>
 		</select>
+		<input type="hidden" value="${page.curPage}" name="curPage">
 		<input type="hidden" value="${page.kind}" name="kind">
 		<input type="text" name="searchWord" id="searchText">
 		<input type="submit" value="SEARCH" id="search" onclick="return check()">

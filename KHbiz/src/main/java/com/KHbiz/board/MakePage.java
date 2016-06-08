@@ -1,5 +1,7 @@
 package com.KHbiz.board;
 public class MakePage {
+	private String searchType;
+	private String searchWord;	
 	private String kind;
 	private int startRow; 
 	private int lastRow;
@@ -9,6 +11,10 @@ public class MakePage {
 	private int curBlock;
 	private int perPage;
 	private int perBlock;
+	private int curPage;
+	private int totalList;
+	
+	
 	public MakePage() {}
 	public MakePage(int curPage, int totalList){
 		perPage = 10;
@@ -38,6 +44,32 @@ public class MakePage {
 			num = num1 / num2 +1;
 		}
 		return num;
+	}
+	
+	public int getCurPage() {
+		return curPage;
+	}
+	public void setCurPage(int curPage) {
+		this.curPage = curPage;
+	}
+	public int getTotalList() {
+		return totalList;
+	}
+	public void setTotalList(int totalList) {
+		this.totalList = totalList;
+	}
+	
+	public String getSearchType() {
+		return searchType;
+	}
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+	public String getSearchWord() {
+		return searchWord;
+	}
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
 	}
 	public String getKind() {
 		return kind;

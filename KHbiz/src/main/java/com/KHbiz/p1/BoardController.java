@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.KHbiz.board.BoardDTO;
-import com.KHbiz.board.BoardSearchType;
 import com.KHbiz.board.BoardService;
+import com.KHbiz.board.MakePage;
 import com.KHbiz.board.ReplyDTO;
 
 @Controller
@@ -47,16 +47,22 @@ public class BoardController {
 		return "redirect:/board/boardList?curPage=1&kind="+kind;
 	}
 	
-	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public String search(@ModelAttribute BoardSearchType boardSearchType,String kind,Model model){
-		boardService.search(boardSearchType,model,kind);
+	@RequestMapping(value="/search", method=RequestMethod.GET)	//검색
+	public String search(@ModelAttribute MakePage mp,String kind,Model model,int curPage){
+		boardService.search(mp,model,kind,curPage);
 		return "board/boardList";
 	}
 	
-	@RequestMapping("/boardList")	
+	@RequestMapping(value="/boardList",method=RequestMethod.GET)	//검색어 없을때
 	public void boardlist(@RequestParam(defaultValue="1") int curPage, String kind, Model model){
 		boardService.list(curPage, model, kind);
 	}
+	
+	@RequestMapping(value="/boardList",method=RequestMethod.POST)	//검색어 있을때
+	public void boardlist(@RequestParam(defaultValue="1") int curPage, String kind, Model model, @ModelAttribute MakePage mp){
+		boardService.list(curPage, model, kind, mp);
+	}
+	
 	
 	@RequestMapping(value="/boardUpdate",method=RequestMethod.GET)
 	public void updateForm(@RequestParam int num, Model model){

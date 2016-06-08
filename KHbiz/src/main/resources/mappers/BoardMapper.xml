@@ -17,6 +17,10 @@
   		select * from board where num=#{num}
   </select>  
   
+  <update id="countsUp" parameterType="java.lang.Integer">
+  	update board set counts=counts+1 where num=#{num}
+  </update>
+  
   <insert id="boardWrite" parameterType="com.KHbiz.board.BoardDTO">
   insert into board values(board_seq.nextVal,#{id},#{title},#{contents},sysdate,0,#{kind},board_seq.currVal)
   </insert>
@@ -39,24 +43,29 @@
   	<include refid="test"></include>
   	</select>
   	
-  	<update id="boardUpdate" parameterType="com.KHbiz.board.BoardDTO">
-  	update board set title=#{title}, contents=#{contents}, counts=#{counts}, id=#{id}, kind=#{kind} where num=#{num}  	
-  	</update>
-   
   	<select id="list" resultType="com.KHbiz.board.BoardDTO">
   	 select * from
       (select rownum R, A.* from 
-      (select * from board where kind=#{kind} order by num desc)A)
+      (select * from board where kind=#{kind} 
+      <if test="searchType != null">
+      <include refid="test"></include> 
+      </if>
+      order by num desc)A)
        where R between #{startRow} and #{lastRow}
   	</select>
+  	
+  	<update id="boardUpdate" parameterType="com.KHbiz.board.BoardDTO">
+  	update board set title=#{title}, contents=#{contents}, counts=#{counts}-1, id=#{id}, kind=#{kind} where num=#{num}  	
+  	</update>
+   
   	
   <select id="totalList" resultType="java.lang.Integer">
   	select count(num) from board where kind=#{kind}
   </select>
-  
  
   <delete id="boardDelete" parameterType="com.KHbiz.board.BoardDTO">
   delete from board where num=#{num}
   </delete>
+  
   
   </mapper>

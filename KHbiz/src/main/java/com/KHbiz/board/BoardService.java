@@ -5,13 +5,18 @@ import org.springframework.ui.Model;
 
 public interface BoardService {
 	
+	/*public void replyNum();*/
+	
+
 	public void replyView(int num, Model model);
 	
 	public void reply(ReplyDTO replyDTO);
 	
-	public void search(BoardSearchType boardSearchType, Model model,String kind);
+	public void search(MakePage mp, Model model,String kind,int curPage);
 
 	public void list(int curPage, Model model, String kind);
+	
+	public void list(int curPage, Model model, String kind, MakePage mp);
 
 	public void boardWrite(BoardDTO boardDTO);
 	
