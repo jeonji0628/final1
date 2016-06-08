@@ -7,12 +7,29 @@ public class NoteDTO {
 	private String to_id;
 	private String title;
 	private String contents;
+	//읽음상태
 	private int state;
 	private String reg_date;
 	private String division;
 	private String position;
 	
+	private String send_del;
+	private String to_del;
 	
+	
+	
+	public String getSend_del() {
+		return send_del;
+	}
+	public void setSend_del(String send_del) {
+		this.send_del = send_del;
+	}
+	public String getTo_del() {
+		return to_del;
+	}
+	public void setTo_del(String to_del) {
+		this.to_del = to_del;
+	}
 	public int getNum() {
 		return num;
 	}
@@ -67,4 +84,8 @@ public class NoteDTO {
 	public void setPosition(String position) {
 		this.position = position;
 	}
+	
+	
+	
+	
 }

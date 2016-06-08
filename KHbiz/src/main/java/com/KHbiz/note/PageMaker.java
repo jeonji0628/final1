@@ -1,11 +1,17 @@
 package com.KHbiz.note;
 
+import org.springframework.stereotype.Service;
+
+
 public class PageMaker {
+	
 	private int StartRow;
 	private int lastRow;
 	
 	private String id;
+	//받은메세지, 보낸메세지 상태확인
 	private int state;
+	
 	
 	//시작번호
 	private int startNum;
@@ -21,7 +27,8 @@ public class PageMaker {
 	
 	public PageMaker(int curPage, int totalCount){
 		//curPage 현재 페이지
-		
+		System.out.println("pageMaker : " + curPage);
+		System.out.println("totalCount : " + totalCount );
 		perPage = 5; //보이는 페이지 수
 		perBlock = 5; // 블럭당 페이지 수 
 		setMember(curPage, totalCount);
@@ -41,6 +48,7 @@ public class PageMaker {
 		}else{
 			totalPage = totalCount / perPage +1;
 		}
+		
 		// 총 블럭 수  = 총 페이지 수 / 블럭당 페이지 수	
 		if(totalPage % perBlock ==0){
 			totalBlock = totalPage / perBlock;
@@ -58,7 +66,7 @@ public class PageMaker {
 		//시작 번호 = (현재 페이지-1) * 블럭당 페이지 수 +1 
 		//ex) 현재 페이지가 1일경우
 		//시작번호 = (1-1) * 5+1 = 0 *5 +1 =1
-		startNum = (curPage -1) * perBlock+1;
+		startNum = (curBlock -1) * perBlock+1;
 		
 		//끝 번호 =(현재 블럭) * 블럭당 페이지 수 
 		//ex) 현재 블럭 1 일경우
@@ -134,7 +142,5 @@ public class PageMaker {
 	public void setState(int state) {
 		this.state = state;
 	}
-	
-	
 	
 }

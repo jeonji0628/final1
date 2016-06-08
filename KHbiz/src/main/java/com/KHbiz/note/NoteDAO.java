@@ -13,6 +13,21 @@ public interface NoteDAO {
 	//받은 메세지 리스트보기
 	public List<NoteDTO> noteList(PageMaker pageMaker);
 	
-	public int count();
+	public int count(int state,String id);
+	
+	//delcheck
+	public NoteDTO delCheck(String del_num);
+	
+	//senddelUpdate
+	public int sendDelUpdate(NoteDTO noteDTO);
+	
+	//To_delUpdate
+	public int toDelUpdate(NoteDTO noteDTO);
+	
+	//noteDel
+	public int noteDel(NoteDTO noteDTO);
+	
+	//읽음처리
+	public int noteReadUpdate(int num);
 	
 }

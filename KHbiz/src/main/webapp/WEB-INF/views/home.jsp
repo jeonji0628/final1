@@ -153,15 +153,7 @@
         	</div>
 	</div>
 </div>
-<%-- </c:if> --%>
 
-<%-- <c:if test="${member eq null}">
-	로그인해주세요
-	<script type="text/javascript">
-		alert("로그인 해주세요");
-	</script>
-</c:if>
- --%>
 </body>
 </html>
 

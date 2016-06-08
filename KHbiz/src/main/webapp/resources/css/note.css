@@ -98,7 +98,13 @@
     	width: 150px;
     }
     #note_contents{
-    	width: 544px;
+    	width: 480px;
+    }
+    #note_contents2{
+    	width: 356px;
+    }
+    #note_check{
+    	width: 62px;
     }
     input[type=checkbox]{
    	  -ms-transform: scale(1.2); /* IE */
