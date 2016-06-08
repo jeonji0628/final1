@@ -1,5 +1,7 @@
 package com.KHbiz.p1;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +18,10 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
-	public String memberlogin(@ModelAttribute MemberDTO memberDTO, Model model ){
+	public String memberlogin(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+
 		memberDTO = memberService.login(memberDTO);
-		model.addAttribute("member", memberDTO);
-		
+		session.setAttribute("member", memberDTO);
 		if(memberDTO != null){
 			return "home";
 		}else{
@@ -27,7 +29,8 @@ public class MemberController {
 		}
 	}
 	@RequestMapping("/memberLogout")
-	public String memberlogout(){
+	public String memberlogout(HttpSession session){
+		memberService.logout(session);
 		return "redirect:/";
 	}
 }

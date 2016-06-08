@@ -27,11 +27,11 @@ public class BoardDAOImpl implements BoardDAO {
 		return result;
 	}*/
 	
-	/*@Override
-	public int replyNum() throws Exception {
-		
-		return 0;
-	}*/
+	@Override
+	public int replyNum(int num) throws Exception {
+		int result = sqlSession.selectOne(Namespace+"replyNum",num);
+		return result;
+	}
 	
 	@Override
 	public void reply(ReplyDTO replyDTO) throws Exception {

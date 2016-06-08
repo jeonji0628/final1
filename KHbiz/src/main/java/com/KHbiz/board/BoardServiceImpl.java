@@ -1,5 +1,7 @@
 package com.KHbiz.board;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -10,12 +12,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Inject
 	private BoardDAO boardDAO;
-	
-	/*@Override
-	public void replyNum() {
-		
-		
-	}*/
 	
 	@Override
 	public void replyView(int num, Model model) {
@@ -114,6 +110,17 @@ public class BoardServiceImpl implements BoardService {
 			p.setCurPage(curPage);
 			model.addAttribute("page",p);
 			model.addAttribute("list",boardDAO.list(p));
+			
+			ArrayList<Integer> ar = new ArrayList<Integer>();
+			
+			
+			for(int i=0;i<boardDAO.list(p).size();i++){
+			int replyNumber = boardDAO.replyNum(boardDAO.list(p).get(i).getNum());
+			ar.add(replyNumber);
+			}
+			
+			model.addAttribute("replyNum",ar);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -130,6 +137,16 @@ public class BoardServiceImpl implements BoardService {
 			mp.setTotalList(totalList);
 			model.addAttribute("page",mp);
 			model.addAttribute("list",boardDAO.list(mp));
+			ArrayList<Integer> ar = new ArrayList<Integer>();
+			
+			for(int i=0;i<boardDAO.list(mp).size();i++){
+			int replyNumber = boardDAO.replyNum(boardDAO.list(mp).get(i).getNum());
+			ar.add(replyNumber);
+			}
+			
+			model.addAttribute("replyNum",ar);
+			/*System.out.println(ar.get(0));
+			System.out.println(ar.get(1));*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

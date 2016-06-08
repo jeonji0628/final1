@@ -5,9 +5,6 @@ import org.springframework.ui.Model;
 
 public interface BoardService {
 	
-	/*public void replyNum();*/
-	
-
 	public void replyView(int num, Model model);
 	
 	public void reply(ReplyDTO replyDTO);

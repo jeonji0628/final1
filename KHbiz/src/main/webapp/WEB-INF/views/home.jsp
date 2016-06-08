@@ -20,12 +20,24 @@
     <link href="<%= application.getContextPath() %>/resources/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   	
+<style type="text/css">
+	a{
+		color: black;
+	}
+	a:hover {
+		color: red;
+		text-decoration: none;
+	}
+
+</style>
 </head>
 <body>
+<%-- <c:if test="${member ne null}"> --%>
 <div id="wrapper">  
 	<header><%@ include file="./header.jsp" %></header>
 	<%@ include file="./sider.jsp" %>
-        <div id="page-wrapper" >
+    	<div id="page-wrapper" >
             <div id="page-inner">             
                   <hr/>
                 <div class="row">
@@ -35,7 +47,7 @@
                     			<i class="fa fa-envelope-o icon_top"></i>
                 			</span>
 	                		<div class="text-box" >
-	                    		<a href="<%= application.getContextPath()%>/note/noteList"><p class="main-text">쪽지함</p></a>
+	                    		<a href="<%= application.getContextPath()%>/note/noteList?id=${member.id}&state=1"><p class="main-text">쪽지함</p></a>
 	                    		<p class="text-muted">Messages</p>
 	                		</div>
              			</div>
@@ -138,8 +150,17 @@
 				    </div>
         		</div>
         	</div>
-        </div>
 	</div>
+</div>
+<%-- </c:if> --%>
+
+<%-- <c:if test="${member eq null}">
+	로그인해주세요
+	<script type="text/javascript">
+		alert("로그인 해주세요");
+	</script>
+</c:if>
+ --%>
 </body>
 </html>
 

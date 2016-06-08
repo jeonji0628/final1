@@ -56,6 +56,7 @@ public class BoardController {
 	@RequestMapping(value="/boardList",method=RequestMethod.GET)	//검색어 없을때
 	public void boardlist(@RequestParam(defaultValue="1") int curPage, String kind, Model model){
 		boardService.list(curPage, model, kind);
+		
 	}
 	
 	@RequestMapping(value="/boardList",method=RequestMethod.POST)	//검색어 있을때

@@ -62,6 +62,10 @@
   <select id="totalList" resultType="java.lang.Integer">
   	select count(num) from board where kind=#{kind}
   </select>
+  
+  <select id="replyNum" resultType="java.lang.Integer">
+  select count(num) from reply where ref=#{num}  
+  </select>
  
   <delete id="boardDelete" parameterType="com.KHbiz.board.BoardDTO">
   delete from board where num=#{num}

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface BoardDAO {
 	
-	/*public int replyNum() throws Exception;*/
+	public int replyNum(int num) throws Exception;
 	
 	/*public int searchTotalList(MakePage mp) throws Exception;*/
 	

@@ -26,52 +26,61 @@
     <link href="<%= application.getContextPath() %>/resources/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-   	<style type="text/css">
+
+<style type="text/css">
    		#boardBody{
    			width: 1250px;
    			height: 1250px;
    			margin: 0 auto;
-   		}
-   		
+   		}   		
    		#boardTable{
    			width: 1000px;
-   			margin: 0 auto;
-   		}
-   	
-   	#boardSearchDiv{
-   		width: 1000px;
-   		margin: 0 auto;
-   	}
-   	
-   	#boardPaging{
-   		width: 1000px;
-   		margin: 0 auto;
-   	}
-   	
-   	#boardListWrite{
-   		width: 800px;
-   		float: right;
-   	}
-   	
-   	</style>
+   			margin-left: 300px;
+   		}   	
+	   	#boardSearchDiv{
+	   		width: 1000px;
+	   		margin: 0 auto;
+	   	}   	
+	   	#boardPaging{
+	   		width: 1000px;
+	   		margin-left: 550px;
+	   	}   	
+	   	#boardListWrite{
+	   		width: 800px;
+	   		float: right;
+	   	}   	
+	   	
+	   	#boardTitle{
+	   		width : 800px;
+	   		height : 100px;
+	   		margin-top : 100px;
+	   		margin-left : 600px;
+	   		color: black;
+	   		}
+</style>
 </head>
 <body>
 <header><%@ include file="../header.jsp" %></header>
 	<%@ include file="../sider.jsp" %>
 
 <div id="boardBody">
-	<h2>게시판</h2>
+	<c:if test="${param.kind eq 1}">
+		<h2 id="boardTitle">부서게시판</h2>
+	</c:if>
+	<c:if test="${param.kind eq 2}">
+		<h2 id="boardTitle">사내게시판</h2>
+	</c:if>	
 	
 <table id="boardTable">
 	<thead>
-		<tr><th>번호</th><th>내용</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
+		<tr><th>번호</th><th>제목[댓글]</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
     </thead>
 	<tbody>
-		<c:forEach items="${list}" var="dto">
+		<c:forEach items="${list}" var="dto" varStatus="t">
 			<tr>
 				<td>${dto.num}</td>
 				<td>
-					<a href="boardView?num=${dto.num}">${dto.title}</a>
+					<a href="boardView?num=${dto.num}&kind=${dto.kind}">${dto.title} [${replyNum[t.index]}]</a>
 				</td>
 				<td>${dto.id}</td>
 				<td>${dto.counts}</td>
