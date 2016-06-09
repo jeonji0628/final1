@@ -19,13 +19,7 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<ReplyDTO> replyView(int num) throws Exception {
 		List<ReplyDTO> ar = sqlSession.selectList(Namespace+"replyView",num);
 		return ar;
-	}
-	
-	/*@Override
-	public int searchTotalList(MakePage mp) throws Exception {
-		int result = sqlSession.selectOne(Namespace+"totalList",mp);
-		return result;
-	}*/
+	}	
 	
 	@Override
 	public int replyNum(int num) throws Exception {
@@ -38,11 +32,11 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.insert(Namespace+"reply",replyDTO);
 	}
 	
-	@Override
+	/*@Override
 	public List<BoardDTO> search(MakePage mp) throws Exception {
 		List<BoardDTO> ar = sqlSession.selectList(Namespace+"search",mp);
 		return ar;
-	}
+	}*/
 	
 	@Override
 	public void boardUpdate1(BoardDTO boardDTO) throws Exception {
@@ -55,8 +49,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
-	public BoardDTO boardView(int num) throws Exception {
-		
+	public BoardDTO boardView(int num) throws Exception {		
 		sqlSession.update(Namespace+"countsUp",num);
 		return sqlSession.selectOne(Namespace+"boardView",num);
 	}
@@ -64,7 +57,6 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void boardWrite(BoardDTO boardDTO) throws Exception {
 		sqlSession.insert(Namespace+"boardWrite",boardDTO);
-		System.out.println(boardDTO.getNum());
 	}
 	
 	@Override

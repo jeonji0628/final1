@@ -1,6 +1,7 @@
 package com.KHbiz.board;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -86,67 +87,76 @@ public class BoardServiceImpl implements BoardService {
 		}
 	}
 	
-	@Override
+/*	@Override
 	public void search(MakePage mp, Model model,String kind,int curPage) {
-		try {
-			model.addAttribute("list",boardDAO.search(mp));			
-			mp.setKind(kind);
-			int searchTotalList = boardDAO.totalList(kind);
-			mp.setCurPage(curPage);
-			mp.setTotalList(searchTotalList);
+		try {		
+			List<BoardDTO> ar = new ArrayList<BoardDTO>();
+			ar = boardDAO.search(mp);
+			model.addAttribute("list",ar);
+			mp = new MakePage(1,ar.size());
 			model.addAttribute("page",mp);
+			
+			ArrayList<Integer> ar2 = new ArrayList<Integer>();
+			
+			for(int i=0;i<ar.size();i++){
+			int replyNumber = boardDAO.replyNum(boardDAO.search(mp).get(i).getNum());
+			ar2.add(replyNumber);
+			}		
+			model.addAttribute("replyNum",ar2);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-	}
+	}*/
 		
-	@Override
-	public void list(int curPage, Model model, String kind) {
+	/*@Override
+	public void list(int curPage, String kind, Model model) {
 		try {
 			int totalList = boardDAO.totalList(kind);
-			MakePage p = new MakePage(curPage, totalList);
-			p.setKind(kind);
-			p.setCurPage(curPage);
-			model.addAttribute("page",p);
-			model.addAttribute("list",boardDAO.list(p));
+			MakePage mp = new MakePage(curPage, totalList);
+			mp.setKind(kind);
+			mp.setCurPage(curPage);
+			model.addAttribute("page",mp);
+			model.addAttribute("list",boardDAO.list(mp));
 			
-			ArrayList<Integer> ar = new ArrayList<Integer>();
-			
-			
-			for(int i=0;i<boardDAO.list(p).size();i++){
-			int replyNumber = boardDAO.replyNum(boardDAO.list(p).get(i).getNum());
+			ArrayList<Integer> ar = new ArrayList<Integer>();	
+			for(int i=0;i<boardDAO.list(mp).size();i++){
+			int replyNumber = boardDAO.replyNum(boardDAO.list(mp).get(i).getNum());
 			ar.add(replyNumber);
 			}
-			
 			model.addAttribute("replyNum",ar);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-	}
+	}*/
 
 	@Override
 	public void list(int curPage, Model model, String kind, MakePage mp) {
 		// TODO Auto-generated method stub
 		try {
-			int totalList = boardDAO.totalList(kind);
-			mp.setKind(kind);
-			mp.setCurPage(curPage);
+			
+			int  totalList = boardDAO.totalList(kind);
 			mp.setTotalList(totalList);
 			model.addAttribute("page",mp);
 			model.addAttribute("list",boardDAO.list(mp));
-			ArrayList<Integer> ar = new ArrayList<Integer>();
 			
-			for(int i=0;i<boardDAO.list(mp).size();i++){
-			int replyNumber = boardDAO.replyNum(boardDAO.list(mp).get(i).getNum());
+		/*	int totalList = boardDAO.totalList(kind);
+			mp.setKind(kind);
+			mp = new MakePage(curPage,totalList);
+			model.addAttribute("page",mp);
+			ArrayList<BoardDTO> ar2 = new ArrayList<BoardDTO>();
+			ar2 = (ArrayList<BoardDTO>)boardDAO.list(mp);
+			model.addAttribute("list",boardDAO.list(mp));*/
+			
+			/*ArrayList<Integer> ar = new ArrayList<Integer>();	
+			for(int i=0;i<boardDAO.search(mp).size();i++){
+			int replyNumber = boardDAO.replyNum(boardDAO.search(mp).get(i).getNum());
 			ar.add(replyNumber);
 			}
+			model.addAttribute("replyNum",ar);*/
 			
-			model.addAttribute("replyNum",ar);
-			/*System.out.println(ar.get(0));
-			System.out.println(ar.get(1));*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

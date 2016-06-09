@@ -80,7 +80,7 @@
 			<tr>
 				<td>${dto.num}</td>
 				<td>
-					<a href="boardView?num=${dto.num}&kind=${dto.kind}">${dto.title} [${replyNum[t.index]}]</a>
+					<a href="boardView?num=${dto.num}&kind=${dto.kind}">${dto.title} <c:if test="${replyNum[t.index] != 0}">[${replyNum[t.index]}]</c:if></a>
 				</td>
 				<td>${dto.id}</td>
 				<td>${dto.counts}</td>
@@ -93,11 +93,11 @@
 <!-- ----------------페이징 ---------------------->
 <div id="boardPaging">	
 	<c:if test="${page.curBlock > 1}">
-		<a href="./boardList?curPage=${page.startNum-1}&kind=${page.kind}">[이전]</a>
+		<a href="./boardList?curPage=${page.startNum-1}&kind=${page.kind}&searchType=${page.searchType}&searchWord=${page.searchWord}">[이전]</a>
 	</c:if>
 
 	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i" >
-		<a href="./boardList?curPage=${i}&kind=${page.kind}">${i}</a>
+		<a href="./boardList?curPage=${i}&kind=${page.kind}&searchType=${page.searchType}&searchWord=${page.searchWord}">${i}</a>
 	</c:forEach>
 
 	<c:if test="${page.curBlock < page.totalBlock}">

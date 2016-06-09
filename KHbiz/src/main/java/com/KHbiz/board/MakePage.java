@@ -15,6 +15,8 @@ public class MakePage {
 	private int totalList;
 	
 	
+
+	
 	public MakePage() {}
 	public MakePage(int curPage, int totalList){
 		perPage = 10;

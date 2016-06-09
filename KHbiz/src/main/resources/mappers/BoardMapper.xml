@@ -38,6 +38,7 @@
   			and contents like '%${searchWord}%'
   		</if>
   	</sql>
+  	 
   	<select id="search" resultType="com.KHbiz.board.BoardDTO">
   	select * from board where kind=#{kind} and num > 0
   	<include refid="test"></include>
@@ -58,10 +59,12 @@
   	update board set title=#{title}, contents=#{contents}, counts=#{counts}-1, id=#{id}, kind=#{kind} where num=#{num}  	
   	</update>
    
-  	
+  
   <select id="totalList" resultType="java.lang.Integer">
-  	select count(num) from board where kind=#{kind}
+  	select count(num) from board where kind=#{kind}	
   </select>
+  
+
   
   <select id="replyNum" resultType="java.lang.Integer">
   select count(num) from reply where ref=#{num}  
