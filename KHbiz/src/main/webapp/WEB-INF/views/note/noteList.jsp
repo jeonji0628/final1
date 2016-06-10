@@ -15,14 +15,14 @@
 	<script src="<%= application.getContextPath()%>/resources/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<%= application.getContextPath()%>/resources/js/bootstrap.min.js" type="text/javascript"></script>
     <title>welcome KHbiz</title>
- 	<link href="<%= application.getContextPath() %>/resources/css/bootstrap.css" rel="stylesheet" />
- 	<link href="<%= application.getContextPath() %>/resources/css/note.css" rel="stylesheet" />
+ 	<link href="<%= application.getContextPath()%>/resources/css/bootstrap.css" rel="stylesheet" />
+ 	<link href="<%= application.getContextPath()%>/resources/css/note.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
-    <link href="<%= application.getContextPath() %>/resources/css/font-awesome.css" rel="stylesheet" />
+    <link href="<%= application.getContextPath()%>/resources/css/font-awesome.css" rel="stylesheet" />
      <!-- MORRIS CHART STYLES-->
-    <link href="<%= application.getContextPath() %>/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="<%= application.getContextPath()%>/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
        <!-- CUSTOM STYLES-->
-    <link href="<%= application.getContextPath() %>/resources/css/custom.css" rel="stylesheet" />
+    <link href="<%= application.getContextPath()%>/resources/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -107,7 +107,6 @@
 <div id="wrapper">  
 	<header><%@ include file="../header.jsp" %></header>
 	<%@ include file="../sider.jsp" %>
-	
         <div id="page-wrapper" >
           <div id="page-inner">  
         	<hr/>
@@ -133,7 +132,6 @@
             <br>
             <div class="table-responsive">
                <table class="table">
-               
                    <tr class="active table-colname">
                    	<td id="note_check" style="padding-top: 13px;">
                    		<input id="allcheck" type="checkbox">

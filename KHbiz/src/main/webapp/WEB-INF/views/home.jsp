@@ -33,7 +33,6 @@
 </style>
 </head>
 <body>
-<%-- <c:if test="${member ne null}"> --%>
 <div id="wrapper">  
 	<header><%@ include file="./header.jsp" %></header>
 	<%@ include file="./sider.jsp" %>
@@ -69,7 +68,7 @@
 			                    <i class="fa fa-clock-o icon_top"></i>
 			                </span>
 			                <div class="text-box" >
-			                    <p class="main-text">출퇴근</p>
+			                   <a href="<%= application.getContextPath()%>/commute/commuteList"><p class="main-text">근태관리</p></a>
 			                    <p class="text-muted">Notifications</p>
 			                </div>
 			             </div>

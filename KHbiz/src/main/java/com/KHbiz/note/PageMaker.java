@@ -27,8 +27,6 @@ public class PageMaker {
 	
 	public PageMaker(int curPage, int totalCount){
 		//curPage 현재 페이지
-		System.out.println("pageMaker : " + curPage);
-		System.out.println("totalCount : " + totalCount );
 		perPage = 5; //보이는 페이지 수
 		perBlock = 5; // 블럭당 페이지 수 
 		setMember(curPage, totalCount);
@@ -55,7 +53,7 @@ public class PageMaker {
 		}else{
 			totalBlock = totalPage / perBlock+1;
 		}
-		
+
 		//현재 블럭 = 현제 페이지 / 블럭당 페이지 수
 		if(curPage%perBlock == 0){
 			curBlock = curPage / perBlock;

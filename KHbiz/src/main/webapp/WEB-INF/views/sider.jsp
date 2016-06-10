@@ -89,10 +89,10 @@
                         <a><i class="fa fa-envelope-o fa-3x"></i> 쪽지함<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">받은 쪽지함</a>
+                                <a href="<%= application.getContextPath()%>/note/noteList?id=${member.id }&state=1">받은 쪽지함</a>
                             </li>
                             <li>
-                                <a href="#">보낸 쪽지함</a>
+                                <a href="<%= application.getContextPath()%>/note/noteList?id=${member.id }&state=2">보낸 쪽지함</a>
                             </li>
                         </ul>
                      </li>

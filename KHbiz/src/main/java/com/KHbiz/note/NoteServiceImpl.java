@@ -82,7 +82,6 @@ public class NoteServiceImpl implements NoteService {
 		for(int i=0; i<list.size(); i++){
 			String passing = list.get(i).getReg_date().substring(0, 16);
 			list.get(i).setReg_date(passing);
-	
 		}
 	
 		model.addAttribute("noteList", list);
