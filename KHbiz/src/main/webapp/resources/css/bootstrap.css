@@ -5116,6 +5116,7 @@ button.close {
   width: auto;
   margin: 10px;
 }
+
 .modal-content {
   position: relative;
   background-color: #fff;
@@ -5184,6 +5185,16 @@ button.close {
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
             box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+  #modal_dialog_commute{
+  	position: relative;
+ 	width: 400px;
+  	margin: 200px 950px;
+  }
+  #modal_dialog_commute2{
+  	position: relative;
+ 	width: 600px;
+  	margin: 200px 300px;
   }
   .modal-sm {
     width: 300px;

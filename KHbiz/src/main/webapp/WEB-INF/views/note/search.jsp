@@ -39,12 +39,11 @@
 </script>
     
     
-<!-- Modal -->
-	
+	<!-- Modal -->
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <span class="modal-title" id="myModalLabel">쪽지 주소록</span>
-      </div>
+    </div>
       <br>
       <div class="col-lg-6">
 	    <div class="input-group">

@@ -96,8 +96,9 @@
 							      <input type="hidden" name="send_id" value="${member.id }">
 							      <input type="hidden" name="division" value="${member.division }">
 							      <input type="hidden" name="position" value="${member.position }">
+							      
 							      <!-- 받는 아이디 -->
-							      <input id="name" name="to_id" type="text" class="form-control" placeholder="검색 버튼을 눌러주세요." readonly="readonly">
+							      <input id="name" name="to_id" type="text" class="form-control" placeholder="검색 버튼을 눌러주세요." readonly="readonly" value="${id}">
 							      
 							      <span class="input-group-btn">
 							        <button id="btn_search" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">
@@ -137,7 +138,7 @@
              </form> 
             </div>
             
-          
+          <!-- Modal -->
            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		   	<div class="modal-dialog">
 			    <div class="modal-content">

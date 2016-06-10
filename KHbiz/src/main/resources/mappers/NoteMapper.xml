@@ -3,24 +3,68 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NoteMapper">
-
+	
+	
+	<update id="noteReadUpdate" parameterType="com.KHbiz.note.NoteDTO">
+		update note set state=1 where num=#{num}
+	</update>
+	
+	<!-- send_del & to_del 상태가 모두 Y일 때 삭제  -->
+	<delete id="noteDel" parameterType="com.KHbiz.note.NoteDTO">
+		delete note where num=${num}
+	</delete>
+	
+	<!-- 받은 사람 딜리트 상태 Y로 변경 -->
+	<update id="toDelUpdate" parameterType="com.KHbiz.note.NoteDTO">
+		update note set to_del='Y' where to_id=#{to_id} and num=${num}
+	</update>
+	
+	<!-- 보낸 사람 딜리트 상태 Y로 변경 -->
+	<update id="sendDelUpdate" parameterType="com.KHbiz.note.NoteDTO">
+		update note set send_del='Y' where send_id=#{send_id} and num=${num}
+	</update>
+	
+	<!-- 딜리트 상태 체크  -->
+	<select id="delCheck" resultType="com.KHbiz.note.NoteDTO">
+		select * from note where num=#{del_num}
+	</select>
+	
+	<!-- 멤버 검색  -->
 	<select id="search" resultType="com.KHbiz.member.MemberDTO">
 		select * from member where name like '%${name}%'
 	</select>
 	
+	<!-- 쪽지 보내기  -->
 	<insert id="noteSend" parameterType="com.KHbiz.note.NoteDTO" >
-		insert into NOTE values(seq_note.nextVal, #{send_id}, 
-		#{to_id}, #{title}, #{contents}, '0', sysdate, #{division}, #{position})
+		insert into NOTE values(seq_note.nextVal, #{send_id},
+		#{to_id}, #{title}, #{contents}, '0', sysdate, #{division}, #{position}, #{send_del}, #{to_del})
 	</insert>
 	
+	<!-- 리스트 출력  -->
 	<select id="noteList" resultType="com.KHbiz.note.NoteDTO">
 		select * from
   	    (select rownum R, A.* from
-  		(select * from note where  order by num desc) A ) 
+  		(select * from note where
+  		<if test="state == 1">
+			to_id=#{id} and to_del='N'
+  		</if>
+  		<if test="state == 2">
+  			send_id=#{id} and send_del='N'
+  		</if>
+  		order by num desc) A ) 
   		where R between #{startRow} and #{lastRow}
 	</select>
 	
+	<!-- 다시 생각해 봐야 할 부분  -->
+	<!-- 쪽지 전체 카운터 출력  -->
 	<select id="count" resultType="java.lang.Integer">
 		select count(num) from note
+		<if test="state ==1">
+			 where to_id=#{send_id}
+		</if>
+		
+		<if test="state ==2">
+			 where send_id=#{send_id}
+		</if>
 	</select>
 </mapper>
