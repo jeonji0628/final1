@@ -6,11 +6,14 @@ public interface BoardDAO {
 	
 	public int replyNum(int num) throws Exception;
 	
+	public List<BoardDTO> search1(MakePage mp) throws Exception;
+	
 	public void reply(ReplyDTO replyDTO) throws Exception;
 	
 	public List<ReplyDTO> replyView(int num) throws Exception;
 
-	/*public List<BoardDTO> search(MakePage mp) throws Exception;*/
+	public List<BoardDTO> search(MakePage mp) throws Exception;
+	
 	public List<BoardDTO> list(MakePage mp) throws Exception;
 	
 	public int totalList(String kind) throws Exception;

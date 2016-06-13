@@ -40,17 +40,22 @@
   	</sql>
   	 
   	<select id="search" resultType="com.KHbiz.board.BoardDTO">
-  	select * from board where kind=#{kind} and num > 0
-  	<include refid="test"></include>
+  	select * from
+      (select rownum R, A.* from 
+      (select * from board where kind=#{kind} and num>0
+      <include refid="test"></include>
+      order by num desc)A)
+       where R between #{startRow} and #{lastRow}  	
+  	</select>
+  	
+  	<select id="search1" resultType="com.KHbiz.board.BoardDTO">
+  	select * from board where kind=#{kind} and num>0 <include refid="test"></include>
   	</select>
   	
   	<select id="list" resultType="com.KHbiz.board.BoardDTO">
   	 select * from
       (select rownum R, A.* from 
       (select * from board where kind=#{kind} 
-      <if test="searchType != null">
-      <include refid="test"></include> 
-      </if>
       order by num desc)A)
        where R between #{startRow} and #{lastRow}
   	</select>

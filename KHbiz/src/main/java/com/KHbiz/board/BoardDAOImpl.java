@@ -32,11 +32,17 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSession.insert(Namespace+"reply",replyDTO);
 	}
 	
-	/*@Override
-	public List<BoardDTO> search(MakePage mp) throws Exception {
+	@Override
+	public List<BoardDTO> search(MakePage mp) throws Exception {		
 		List<BoardDTO> ar = sqlSession.selectList(Namespace+"search",mp);
 		return ar;
-	}*/
+	}
+	
+	@Override
+	public List<BoardDTO> search1(MakePage mp) throws Exception {
+		List<BoardDTO> ar = sqlSession.selectList(Namespace+"search1",mp);
+		return ar;
+	}
 	
 	@Override
 	public void boardUpdate1(BoardDTO boardDTO) throws Exception {

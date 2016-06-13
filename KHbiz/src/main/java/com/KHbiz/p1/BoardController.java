@@ -21,6 +21,7 @@ public class BoardController {
 	@Inject
 	private BoardService boardService;	
 	
+	//리플
 	@RequestMapping(value="reply", method=RequestMethod.POST)
 	public String reply(@ModelAttribute ReplyDTO replyDTO, int num){
 		replyDTO.setRef(num);
@@ -28,16 +29,19 @@ public class BoardController {
 		return "redirect:/board/boardView?num="+num;
 	}
 	
+	//글 보기
 	@RequestMapping(value="/boardView")
 	public void boardView(@RequestParam int num, Model model){
 		boardService.boardView(num,model);
 		boardService.replyView(num,model);
 	}
 	
+	//글 쓰기 폼
 	@RequestMapping(value="/boardWrite",method=RequestMethod.GET)
 	public void writeForm(){		
 	}
 	
+	// 글 쓰기
 	@RequestMapping(value="/boardWrite",method=RequestMethod.POST)
 	public String boardWrite(@ModelAttribute BoardDTO boardDTO){
 		boardService.boardWrite(boardDTO);
@@ -45,29 +49,29 @@ public class BoardController {
 		return "redirect:/board/boardList?curPage=1&kind="+kind;
 	}
 	
-	/*@RequestMapping(value="/search", method=RequestMethod.GET)	//검색
-	public String search(@ModelAttribute MakePage mp,String kind,Model model,int curPage){
+	//검색
+	@RequestMapping(value="/search", method=RequestMethod.GET)	
+	public String search(@ModelAttribute MakePage mp,String kind,Model model,@RequestParam(defaultValue="1") int curPage){
+		if(curPage == 0){
+			curPage = 1;
+		}
 		boardService.search(mp,model,kind,curPage);
 		return "board/boardList";
-	}*/
-	
-	/*@RequestMapping(value="/boardList",method=RequestMethod.GET)	//검색어 없을때
-	public void boardlist(@RequestParam(defaultValue="1") int curPage, String kind, Model model){
-		boardService.list(curPage,kind, model);
-		
-	}*/
-	
-	@RequestMapping(value="/boardList")	//검색어 있을때
-	public void boardlist(@RequestParam(defaultValue="1") int curPage, String kind, Model model, @ModelAttribute MakePage mp){
-		boardService.list(curPage, model, kind, mp);
 	}
 	
+	//리스트 - 검색어 없을때
+	@RequestMapping(value="/boardList",method=RequestMethod.GET)	
+	public void boardlist(@RequestParam(defaultValue="1") int curPage, String kind, Model model,MakePage mp){	
+		boardService.list(curPage,kind, model,mp);		
+	}
 	
+	//수정폼
 	@RequestMapping(value="/boardUpdate",method=RequestMethod.GET)
 	public void updateForm(@RequestParam int num, Model model){
 		boardService.boardView(num,model);
 	}
 	
+	//수정
 	@RequestMapping(value="/boardUpdate1", method=RequestMethod.POST)
 	public String boardUpdate1(@ModelAttribute BoardDTO boardDTO){
 		boardService.boardUpdate1(boardDTO);
@@ -75,7 +79,7 @@ public class BoardController {
 		return "redirect:/board/boardList?curPage=1&kind="+kind;
 	}
 	
-	
+	//삭제
 	@RequestMapping(value="/boardDelete", method=RequestMethod.GET)
 	public String boardDelete(@RequestParam int num, String kind){		
 		String kind1 = kind;

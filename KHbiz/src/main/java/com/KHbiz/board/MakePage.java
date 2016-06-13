@@ -17,14 +17,17 @@ public class MakePage {
 	
 
 	
-	public MakePage() {}
+	public MakePage() {
+		perPage = 10;
+		perBlock = 10;
+	}
 	public MakePage(int curPage, int totalList){
 		perPage = 10;
 		perBlock = 10;
 		setMember(curPage, totalList);
 	}
 	
-	private void setMember(int curPage, int totalList){
+	public void setMember(int curPage, int totalList){
 		this.startRow = (curPage - 1) * perPage + 1;
 		this.lastRow = curPage * perPage;
 		int totalPage = sum(totalList, perPage);
