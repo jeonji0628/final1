@@ -39,10 +39,10 @@
                         <a><i class="fa fa-file-text-o fa-3x"></i> 일일 업무일지<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">개인 업무일지</a>
+                                <a href="<%=application.getContextPath()%>/workLog/workLogList?id=${member.id}&state=1">개인 업무일지</a>
                             </li>
                             <li>
-                                <a href="#">부서 업무일지</a>
+                                <a href="<%=application.getContextPath()%>/workLog/workLogList?id=${member.id}&division=${member.division}">부서 업무일지</a>
                             </li>
                         </ul>
                      </li>

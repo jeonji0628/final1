@@ -59,7 +59,7 @@ public class BoardController {
 		return "board/boardList";
 	}
 	
-	//리스트 - 검색어 없을때
+	//리스트
 	@RequestMapping(value="/boardList",method=RequestMethod.GET)	
 	public void boardlist(@RequestParam(defaultValue="1") int curPage, String kind, Model model,MakePage mp){	
 		boardService.list(curPage,kind, model,mp);		
