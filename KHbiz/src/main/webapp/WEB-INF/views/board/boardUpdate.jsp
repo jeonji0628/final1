@@ -12,6 +12,15 @@
 	<script src="<%= application.getContextPath() %>/resources/js/bootstrap.min.js" type="text/javascript"></script>
 	<title>게시판</title>
 	
+	<!--ck deitor-->
+	<script type="text/javascript" src="<%= application.getContextPath()%>/resources/ckeditor/ckeditor.js">
+	</script>	
+	<script type="text/javascript">
+	window.onload=function(){  /* /익명함수 */
+		CKEDITOR.replace("ckeditor");
+	}
+	</script>
+	
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
