@@ -8,13 +8,13 @@
   	select * from workLog where id=#{id} and state=#{state} and reg_date like '%' || #{reg_date} || '%'  
    </select>
    
-   <select id="view" resultType="com.KHbiz.workLog.WorkLogDTO">
-   select * from workLog where num=#{num}
-   </select>
-   
    <select id="list2" resultType="com.KHbiz.workLog.WorkLogDTO">    
 		select * from workLog where division=#{division} and state=#{state} and reg_date like '%' || #{reg_date} || '%' 
    </select>
+   
+   <select id="view" resultType="com.KHbiz.workLog.WorkLogDTO">
+   select * from workLog where num=#{num}
+   </select>   
    
    <update id="listUpdate" parameterType="com.KHbiz.workLog.WorkLogDTO">
    update workLog set payment_state=#{payment_state}, payment_id=#{payment_id} where num=#{num}

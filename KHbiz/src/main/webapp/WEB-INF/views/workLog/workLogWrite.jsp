@@ -80,7 +80,7 @@
 	                   		<div class="col-lg-6">
 							    <div class="input-group">
 							      ${param.division} 
-							      <c:if test="${parma.grade == 1}">
+							      <c:if test="${param.grade == 1}">
 									사원
 									</c:if>
 									<c:if test="${param.grade == 2}">
@@ -148,7 +148,7 @@
 	        				<div id="workLogUpdate_div1">
 	        				
 			        				<input type="submit" id="writeSuccess" value="작성완료">
-									<a href="<%=application.getContextPath()%>/workLog/workLogList?id=${member.id}&state=1&reg=1&gra=${member.position}&divi=${member.division}"><input type="button" id="list" value="취소"></a>
+									<a href="<%=application.getContextPath()%>/workLog/workLogList?id=${member.id}&state=${param.state}&reg=1&gra=${member.position}&divi=${member.division}"><input type="button" id="list" value="취소"></a>
 			        				</div>
 	        			</form>
 	         </div>

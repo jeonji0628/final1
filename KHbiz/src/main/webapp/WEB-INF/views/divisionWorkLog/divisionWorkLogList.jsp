@@ -60,7 +60,7 @@ $(document).ready(function() {
   $("#img.ui-datepicker-trigger").attr("style","margin-left:5px; vertical-align:middle; cursor:pointer;"); //이미지버튼 style적용
   $("#ui-datepicker-div").hide(); //자동으로 생성되는 div객체 숨김  
   
-  $("#divisionWorkLogView").click(function(){
+  $("#workLogView").click(function(){
 	  	var id;
 	  	var state;
 	  	
@@ -78,17 +78,18 @@ $(document).ready(function() {
 	   	var gra = $("#gra").val();
 	   	var divi = $("#divi").val();
 	   	
-	  	location.href = "divisiondivisionWorkLogList?id="+id+"&state="+state+"&reg="+reg_date+"&gra="+gra+"&divi="+divi;	   
+	  	location.href = "divisionWorkLogList?id="+id+"&state="+state+"&reg="+reg_date+"&gra="+gra+"&divi="+divi;	   
 
 }); 
   
-  $(".workLogView1").click(function(){
+  $(".divisionWorkLogView1").click(function(){
 	  	var num = $(this).attr("name");	  	
-	  	location.href = "workLogOneView?num="+num;
+	  	location.href = "divisionWorkLogOneView?num="+num;
 });   
   
 });
 </script>
+
 </head>
 <body>
 <header><%@ include file="../header.jsp" %></header>
@@ -97,8 +98,8 @@ $(document).ready(function() {
 		<div id="page-inner">
 			<hr/>
 			<div class="table-size">
+				<h3>${param.divi}부서</h3> 
 			 <div class="table-up">
-				 
 				<ul class="nav nav-tabs">
 					<c:if test="${param.state eq 1}">
 						<li role="presentation" class="active"><a href="./divisionWorkLogList?id=${member.id}&state=1&reg=1&gra=${member.position}&divi=${member.division}">일일업무일지</a></li>
@@ -123,7 +124,7 @@ $(document).ready(function() {
 				 	<table class="table">
 				 	<div id="calendar_div">
 					 	<input type="text" name="fromDt" id="selectDate" size="8" maxlength="8" value ="">&nbsp;
-						<input type="button" id="divisionWorkLogView" value="해당날짜 업무일지보기">
+						<input type="button" id="workLogView" value="해당날짜 업무일지보기">
 					 </div>
 					 	<tr class="active table-colname">
 	                   								
@@ -158,8 +159,8 @@ $(document).ready(function() {
 		                    <td style="padding-top: 30px;">${divisionWorkLogDTO.payment_state}</td>
 		            <td>        
 		            <input type="hidden" name="reg" id="hiddenReg" value="${param.reg}">
-					<c:if test="${divisionWorkLogDTO.id != member.id and member.position eq '부장' or '실장' or '이사' or '대표이사'}">
-					<form action="divisionWorkLogListUpdate" method="post">
+					<c:if test="${divisionWorkLogDTO.grade > 3}">
+					<form action="divisionWorkLogListUpdate" method="post" style="margin-top: 20px;">
 					<select name="payment_state" id="payment_state">
 						<option value="1">미결제</option>
 						<option value="2">결제완료</option>
@@ -197,13 +198,14 @@ $(document).ready(function() {
 					<input type="hidden" id="divi" name="divi" value="${param.divi}">
 					<input type="hidden" id="gra" name="gra" value="${param.gra}">
 					
-<form action="divisionWorkLogWrite" method="get" id="divisionWorkLogWrite">
-			<input type="hidden" name ="id" id="id" value="${member.id}">
-			<input type="hidden" name ="state" value="${param.state}">
-			<input type="hidden" name="divi" value="${member.division}">
-			<input type="hidden" name="gra" value="${member.position}">
-			<input type="submit" name="write" id="workLog_writer_button" value="업무일지작성">
-</form>
+						<form action="divisionWorkLogWrite" method="get" id="divisionWorkLogWrite">
+									<input type="hidden" name ="id" id="id" value="${member.id}">
+									<input type="hidden" name ="state" value="${param.state}">
+									<input type="hidden" name="divi" value="${member.division}">
+									<input type="hidden" name="gra" value="${member.position}">
+									<!-- division position job name id state (plan result noted) -->		
+									<input type="submit" name="write" id="workLog_writer_button" value="업무일지작성">
+						</form>
 				 </div>
 			</div>		
 		</div>

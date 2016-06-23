@@ -15,6 +15,17 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDAO;
 	
 	@Override
+	public void boardPreview(Model model) {
+		String kind = "2";
+		try {
+			model.addAttribute("preview",boardDAO.boardPreview(kind));
+			} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	@Override
 	public void replyView(int num, Model model) {
 		try {
 			model.addAttribute("reply",boardDAO.replyView(num));			

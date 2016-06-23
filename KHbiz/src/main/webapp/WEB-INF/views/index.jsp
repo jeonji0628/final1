@@ -5,13 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>KH Biz</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link href="<%= application.getContextPath() %>/resources/css/index.css" rel="stylesheet" />
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	function board(){		
+		$.ajax({
+			url : "./board/boardPreview",
+			success:function(data){
+				$("#mid_right").html(data);
+			}
+		});
+	};	
+</script>
 </head>
 
-<body>
+<body onload="board()">
 	<div id="total">
 		<div id="top">
 			<img src="./resources/img/banner.png">
@@ -50,6 +61,9 @@
 			</div>
 			
 			<div id="mid_right" >
+				
+				
+				
 			</div>
 		</div>
 		<div id="bottom">

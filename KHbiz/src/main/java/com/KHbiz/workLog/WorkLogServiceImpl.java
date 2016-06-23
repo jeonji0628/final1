@@ -94,7 +94,7 @@ public class WorkLogServiceImpl implements WorkLogService {
 	@Override
 	public void workLogList(WorkLogDTO wdto, Model model) {
 		try {
-			List<WorkLogDTO> ar = workLogDAO.list(wdto);		
+			List<WorkLogDTO> ar = workLogDAO.list(wdto);	
 			for(int i=0; i<ar.size(); i++){
 				if(ar.get(i).getPayment_state().equals("1")){
 					ar.get(i).setPayment_state("미결제");

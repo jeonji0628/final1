@@ -28,17 +28,17 @@ public class WorkLogController {
 	@RequestMapping(value="/workLogWrite",method=RequestMethod.GET)
 	public void writeForm(){}
 	
-	//수정폼
-	@RequestMapping(value="workLogUpdate", method=RequestMethod.GET)
-	public void updateForm(@RequestParam int num, Model model){
-		workLogService.workLogUpdateForm(num, model);
-	}
 	
 	@RequestMapping(value="workLogOneView", method=RequestMethod.GET)
 	public void workLogOneView(int num,Model model){		
 		workLogService.workLogView(num, model);	
 	}
 	
+	//수정폼
+	@RequestMapping(value="workLogUpdate", method=RequestMethod.GET)
+	public void updateForm(@RequestParam int num, Model model){
+		workLogService.workLogUpdateForm(num, model);
+	}
 	
 	
 	@RequestMapping(value="workLogUpdate",method=RequestMethod.POST)

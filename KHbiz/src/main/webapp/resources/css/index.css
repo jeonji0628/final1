@@ -11,6 +11,8 @@
 		padding-top: 50px;	
 		
 	}
+	
+	
 	#top1{
 		width: 100%;
 	    font-weight: bold;
@@ -41,7 +43,12 @@
 		width: 550px;
 		height: 168px;
 		border-right: 1px rgb(204,204,204) solid;
+		overflow: hidden;
 	}
+	
+	#boardpreviewTable{
+	text-align: center;}
+	
 	#loginForm{
 		width: 85%;
 		height: 100%;
