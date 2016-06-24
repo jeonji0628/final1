@@ -36,13 +36,13 @@
                         </ul>
                      </li>
                     <li class="side">
-                        <a><i class="fa fa-file-text-o fa-3x"></i> 일일 업무일지<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-file-text-o fa-3x"></i>업무일지<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<%=application.getContextPath()%>/workLog/workLogList?id=${member.id}&state=1">개인 업무일지</a>
+                                <a href="<%=application.getContextPath()%>/workLog/workLogList?id=${member.id}&state=1&reg=1&gra=${member.position}&divi=${member.division}">개인 업무일지</a>
                             </li>
                             <li>
-                                <a href="<%=application.getContextPath()%>/workLog/workLogList?id=${member.id}&division=${member.division}">부서 업무일지</a>
+                                <a href="<%=application.getContextPath()%>/divisionWorkLog/divisionWorkLogList?id=${member.id}&divi=${member.division}&state=1&reg=1&gra=${member.position}">부서 업무일지</a>
                             </li>
                         </ul>
                      </li>

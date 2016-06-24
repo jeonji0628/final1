@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="DivisionWorkLogMapper">
+  
+  	<update id="update" parameterType="com.KHbiz.workLog.DivisionWorkLogDTO">
+  		update division_workLog set plan=#{plan},result=#{result}, upload=#{upload}, noted=#{noted} where num=#{num} 
+  	</update>
+  
+  	<select id="divisionWorkLogUpdateForm" resultType="com.KHbiz.workLog.DivisionWorkLogDTO">
+  		select * from division_workLog where num=#{num}
+  	</select>
+  
+  	<delete id="delete" parameterType="java.lang.Integer">
+  		delete from division_workLog where num=#{num}
+  	</delete>
+  	
+  	<update id="listUpdate" parameterType="com.KHbiz.workLog.DivisionWorkLogDTO">
+  		update division_workLog set payment_state=#{payment_state}, payment_id=#{payment_id} where num=#{num}
+  	</update>
+  	
+  	<select id="view" resultType="com.KHbiz.workLog.DivisionWorkLogDTO">
+  		select * from division_workLog where num=#{num}
+  	</select>
+  	
+  	<select id="list" resultType="com.KHbiz.workLog.DivisionWorkLogDTO">
+  		select * from division_workLog where division=#{division} and state=#{state} and reg_date like '%' || #{reg_date} || '%'
+  	</select>
+  	<insert id="write" parameterType="com.KHbiz.workLog.DivisionWorkLogDTO">
+  		insert into division_workLog values(division_workLog_seq.nextVal,#{division},#{position},#{job},#{name},#{id},#{plan},#{result},#{noted},#{state},sysdate,#{upload},#{payment_state},#{payment_id},#{grade})
+  	</insert>
+  
+  </mapper>

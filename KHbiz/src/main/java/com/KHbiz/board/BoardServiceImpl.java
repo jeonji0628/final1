@@ -15,6 +15,27 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDAO;
 	
 	@Override
+	public void boardOnePreview(int num, Model model) {
+		try {
+			model.addAttribute("boardOnePreview1",boardDAO.boardOnePreview(num));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	@Override
+	public void boardPreview(Model model) {
+		String kind = "2";
+		try {
+			model.addAttribute("preview",boardDAO.boardPreview(kind));
+			} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	@Override
 	public void replyView(int num, Model model) {
 		try {
 			model.addAttribute("reply",boardDAO.replyView(num));			
@@ -79,6 +100,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void boardWrite(BoardDTO boardDTO) {
+		System.out.println("dddd");
 		try {
 			boardDAO.boardWrite(boardDTO);
 		} catch (Exception e) {

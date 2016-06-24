@@ -4,6 +4,10 @@ import java.util.List;
 
 public interface BoardDAO {
 	
+	public BoardDTO boardOnePreview(int num) throws Exception;
+	
+	public List<BoardDTO> boardPreview(String kind) throws Exception;
+	
 	public int replyNum(int num) throws Exception;
 	
 	public List<BoardDTO> search1(MakePage mp) throws Exception;

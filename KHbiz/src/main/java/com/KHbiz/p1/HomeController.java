@@ -27,9 +27,6 @@ public class HomeController {
 		//index Page로 이동
 		return "index";
 	}
-	@RequestMapping(value = "/home")
-	public void home(){
-	}
 	
 	@RequestMapping(value = "/memberLogin")
 	public String memberLogin(){

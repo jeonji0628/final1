@@ -11,6 +11,9 @@
 		padding-top: 50px;	
 		
 	}
+	
+	
+	
 	#top1{
 		width: 100%;
 	    font-weight: bold;
@@ -29,6 +32,33 @@
 		width: 1100px;
 		height: 168px;
 	}
+		
+	#boardpreviewTable{
+		width: 520px;
+		margin-top: 10px;
+		margin-left: 10px;
+	}	
+	
+	#info,#more{
+		border-top: none;
+	}
+	
+	#more{
+		text-align: right;
+	}
+	
+	#info{
+		font-size: 15px;
+	}
+		
+	.tddd{
+		font-size : 12px;
+		width:300px;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+	}
+	
 	#mid_left{
 		width: 550px;
 		height: 168px;
@@ -41,7 +71,10 @@
 		width: 550px;
 		height: 168px;
 		border-right: 1px rgb(204,204,204) solid;
+		overflow: hidden;
 	}
+	
+	
 	#loginForm{
 		width: 85%;
 		height: 100%;

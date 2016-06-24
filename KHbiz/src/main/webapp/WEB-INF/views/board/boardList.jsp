@@ -36,7 +36,6 @@
 	<%@ include file="../sider.jsp" %>
 
 
-
 <div id="page-wrapper" >
           <div id="page-inner">  
         	<hr/>
@@ -65,7 +64,7 @@
                    <tr class="active table-colname">
                    								
 	                    <td id="board_num" style="padding-top: 13px;">번호</td>
-	                    <td id="board_title" style="padding-top: 13px;">제목 [댓글]</td>
+	                    <td id="board_title" style="padding-top: 13px;">제목</td>
                     	<td id="board_writer" style="padding-top: 13px;">작성자</td>
                     	
                     	<td id="board_counts" style="padding-top: 13px;">조회수</td>
@@ -74,15 +73,17 @@
                    </tr>
                    
                    <c:forEach items="${list}" var="dto" varStatus="t">          
-	        <tr>
+	        	<tr>
 				<td>${dto.num}</td>
 				<td>
+				<div id="short">
 					<a href="boardView?num=${dto.num}&kind=${dto.kind}">${dto.title} <c:if test="${replyNum[t.index] != 0}">[${replyNum[t.index]}]</c:if></a>
+				</div>
 				</td>
 				<td>${dto.id}</td>
 				<td>${dto.counts}</td>
 				<td>${dto.reg_date}</td>
-			</tr>
+				</tr>
                    </c:forEach>
                    
                	</table>

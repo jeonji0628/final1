@@ -35,6 +35,22 @@ body {
     min-height:1200px;
 }
 
+#page-inner2 {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:#fff!important;
+    padding:10px;
+    min-height:1300px;
+}
+
+#page-inner3 {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:#fff!important;
+    padding:10px;
+    min-height:1400px;
+}
+
 .text-center {
     text-align:center;
 }
