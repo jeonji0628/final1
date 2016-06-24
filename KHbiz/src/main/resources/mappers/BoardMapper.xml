@@ -6,7 +6,7 @@
   <mapper namespace="BoardMapper">
   
   	<select id="preview" resultType="com.KHbiz.board.BoardDTO">
-  	select * from (select rownum R, A.* from (select * from board where kind=#{kind} order by num desc) A) where R between 1 and 5
+  	select * from (select rownum R, A.* from (select * from board where kind=#{kind} order by num desc) A) where R between 1 and 4
   	</select>
   
   	<insert id="reply" parameterType="com.KHbiz.board.ReplyDTO">

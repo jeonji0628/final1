@@ -15,6 +15,14 @@
    		width : 600px;
    	}
    	
+   	#short{
+   		width : 400px;
+		height : 40px;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+   	}
+   	
    	#boardViewbtn_div2{
    		height: 40px;
    		width : 1000px;

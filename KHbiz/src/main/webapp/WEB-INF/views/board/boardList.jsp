@@ -73,15 +73,17 @@
                    </tr>
                    
                    <c:forEach items="${list}" var="dto" varStatus="t">          
-	        <tr>
+	        	<tr>
 				<td>${dto.num}</td>
 				<td>
+				<div id="short">
 					<a href="boardView?num=${dto.num}&kind=${dto.kind}">${dto.title} <c:if test="${replyNum[t.index] != 0}">[${replyNum[t.index]}]</c:if></a>
+				</div>
 				</td>
 				<td>${dto.id}</td>
 				<td>${dto.counts}</td>
 				<td>${dto.reg_date}</td>
-			</tr>
+				</tr>
                    </c:forEach>
                    
                	</table>
