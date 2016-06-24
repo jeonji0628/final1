@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link href="<%= application.getContextPath() %>/resources/css/index.css" rel="stylesheet" />
-
 </head>
 
 <body>
@@ -40,7 +39,8 @@
 									<td></td>
 									<td id="td1">
 										<input type="checkbox"> 아이디저장 &nbsp;&nbsp;&nbsp;&nbsp;
-										<a href="#"><img src="./resources/img/pw_btn.gif"></a>
+										<a href="./member/joinForm">회원가입</a>
+										<a href="./member/idFindForm">계정찾기</a>
 									</td>
 								</tr>
 							</table>

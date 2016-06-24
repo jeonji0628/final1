@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+#info_1{
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 7%;
+}
+.title_1{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+.top_1{
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+}
+
+#company{
+	margin-top: 10%;
+}
+table{
+	text-align: center;
+}
