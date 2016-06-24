@@ -46,7 +46,7 @@
                     			<i class="fa fa-envelope-o icon_top"></i>
                 			</span>
 	                		<div class="text-box" >
-	                    		<a href="<%= application.getContextPath()%>/note/noteList?id=${member.id }&state=1"><p class="main-text">쪽지함</p></a>
+	                    		<a href="<%= application.getContextPath()%>/note/noteList?id=${member.id}&state=1"><p class="main-text">쪽지함</p></a>
 	                    		<p class="text-muted">Messages</p>
 	                		</div>
              			</div>
@@ -106,15 +106,14 @@
 			                    <i class="fa fa-list-alt icon_top"></i>
 			                </span>
 			                <div class="text-box" >
-			                    <p class="main-text">부서 게시판</p>
+			                    <a href="./board/boardList?kind=1&curPage=1"><p class="main-text">부서 게시판</p></a>
 			                    <p class="text-muted">Please fix these issues to work smooth</p>
 			                    <p class="text-muted">Time Left: 30 mins</p>
 			                    <hr/>
 			                </div>
 			                
 			             </div>
-					</div>
-                    
+					</div>                    
                     
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel back-dash">

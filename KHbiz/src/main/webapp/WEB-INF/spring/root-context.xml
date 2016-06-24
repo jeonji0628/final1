@@ -10,14 +10,14 @@
 	<!-- myBatis 1) DataSource 추가 -->
 	<bean id="dataSoruce" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="url" value="jdbc:oracle:thin:@192.168.230.145:1521:xe"></property>
 		<property name="username" value="khbiz"></property>
 		<property name="password" value="khbiz"></property>
 	</bean>
 	
 	<!-- mybatis 2) SqlFactory 추가  -->
 	
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSoruce"></property>
 		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
@@ -25,7 +25,7 @@
 	<!-- mybatis 3) SqlSession  -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
-	</bean>
+	</bean> 
 	
 	
 	

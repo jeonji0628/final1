@@ -39,7 +39,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
-	public String memberlogin(@ModelAttribute MemberDTO memberDTO, HttpSession session ){
+	public String memberlogin(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+
 		memberDTO = memberService.login(memberDTO);
 		session.setAttribute("member", memberDTO);
 		if(memberDTO != null){
