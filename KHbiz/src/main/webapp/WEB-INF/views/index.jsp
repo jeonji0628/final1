@@ -11,6 +11,14 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script type="text/javascript">
+		
+
+	
+	function onePreview(count){
+		window.open("./board/boardOnePreview?num="+count,"popup", "width=700, height=500, left=100, top=50, scrollbars=no,titlebar=no,status=no,resizable=no,fullscreen=no");
+		/* location.href="./board/boardOnePreview?num="+count;	 */
+	};
+	
 	function board(){		
 		$.ajax({
 			url : "./board/boardPreview",
@@ -19,6 +27,10 @@
 			}
 		});
 	};	
+	
+	function more1(){
+		alert("로그인이 필요한 서비스입니다");
+	}
 </script>
 </head>
 

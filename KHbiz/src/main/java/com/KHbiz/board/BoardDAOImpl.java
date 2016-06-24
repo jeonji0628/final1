@@ -16,6 +16,11 @@ public class BoardDAOImpl implements BoardDAO {
 	private static final String Namespace="BoardMapper.";
 	
 	@Override
+	public BoardDTO boardOnePreview(int num) throws Exception {		
+		return sqlSession.selectOne(Namespace+"boardOnePreview",num);
+	}
+	
+	@Override
 	public List<BoardDTO> boardPreview(String kind) throws Exception {
 		List<BoardDTO> ar = sqlSession.selectList(Namespace+"preview",kind);
 		return ar;

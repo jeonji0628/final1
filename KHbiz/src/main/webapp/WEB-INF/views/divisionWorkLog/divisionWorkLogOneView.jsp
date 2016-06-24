@@ -51,13 +51,13 @@
 						<li role="presentation" class="active">
 			 			<h3>${divisionWorkLogOne.division} 부서</h3>
 							<c:if test="${divisionWorkLogOne.state eq 1}">
-								<h3>일일업무일지보기</h3>
+								<h4>일일업무일지보기</h4>
 							</c:if>
 							<c:if test="${divisionWorkLogOne.state eq 2}">
-								<h3>주간업무일지보기</h3>
+								<h4>주간업무일지보기</h4>
 							</c:if>
 							<c:if test="${divisionWorkLogOne.state eq 3}">
-								<h3>월간업무일지보기</h3>
+								<h4>월간업무일지보기</h4>
 							</c:if>
 						</li>
 					</ul>

@@ -51,7 +51,7 @@
 	<%@ include file="../sider.jsp" %>
 
 	<div id="page-wrapper">
-		<div id="page-inner">
+		<div id="page-inner3">
 			<hr/>
 			<div class="table-size">
 			<h3>${param.divi}부서</h3> 

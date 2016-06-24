@@ -26,6 +26,11 @@ public class BoardController {
 		boardService.boardPreview(model);	
 	}
 	
+	@RequestMapping(value="/boardOnePreview")
+	public void boardOnePreview(@RequestParam int num, Model model){
+		boardService.boardOnePreview(num,model);
+	}
+	
 	//리플
 	@RequestMapping(value="reply", method=RequestMethod.POST)
 	public String reply(@ModelAttribute ReplyDTO replyDTO, int num){

@@ -126,17 +126,17 @@ $(document).ready(function() {
 					 </div>
 					 	<tr class="active table-colname">
 	                   								
-		                    <td id="workLog_num" style="padding-top: 13px;">번호</td>
-		                    <td id="workLog_title" style="padding-top: 13px;">작성자</td>
-	                    	<td id="workLog_writer" style="padding-top: 13px;">업무내용</td>
+		                    <td id="workLog_num" style="padding-top: 13px; border-bottom: 1px solid #ddd;">번호</td>
+		                    <td id="workLog_title" style="padding-top: 13px; border-bottom: 1px solid #ddd;">ID</td>
+	                    	<td id="workLog_writer" style="padding-top: 13px; border-bottom: 1px solid #ddd;">업무내용</td>
 	                    	
-	                    	<td id="workLog_counts" style="padding-top: 13px;">업무결과</td>
-	                    	<td id="workLog_noted" style="padding-top: 13px;">특이사항</td>
-	                    	<td id="workLog_reg_date" style="padding-top: 13px;">작성일</td>
-	                    	<td id="workLog_paymentState" style="padding-top: 13px;" colspan="2">결제상태</td>
-	                    	<td id="workLog_paymentPerson" style="padding-top: 13px;">결제자(확인자) id</td>
+	                    	<td id="workLog_counts" style="padding-top: 13px; border-bottom: 1px solid #ddd;">업무결과</td>
+	                    	<td id="workLog_noted" style="padding-top: 13px; border-bottom: 1px solid #ddd;">특이사항</td>
+	                    	<td id="workLog_reg_date" style="padding-top: 13px; border-bottom: 1px solid #ddd;">작성일</td>
+	                    	<td id="workLog_paymentState" style="padding-top: 13px; border-bottom: 1px solid #ddd;" colspan="2">결제상태</td>
+	                    	<td id="workLog_paymentPerson" style="padding-top: 13px; border-bottom: 1px solid #ddd;">결제</td>
 	                    	<c:if test="${member.id == workLogDTO.id}">
-	                    	<td id="aaaaa" style="padding-top: 13px;"></td>
+	                    	<td id="aaaaa" style="padding-top: 13px; border-bottom: 1px solid #ddd;"></td>
 	                    	</c:if>				             
 	                   </tr>
                    
@@ -154,7 +154,7 @@ $(document).ready(function() {
 		                    <div class="short"><a herf="" name="${workLogDTO.num}" class="workLogView1">${workLogDTO.noted}</a></div>
 		                    </td>
 		                    <td style="padding-top: 30px;">${workLogDTO.reg_date}</td>
-		                    <td style="padding-top: 30px;">${workLogDTO.payment_state}</td>
+		                    <td style="padding-top: 30px;" id="paymentInfo">${workLogDTO.payment_state}</td>
 		            <td>        
 		            <input type="hidden" name="reg" id="hiddenReg" value="${param.reg}">
 					<c:if test="${workLogDTO.grade > 3 and workLogDTO.id != member.id}">
@@ -182,7 +182,7 @@ $(document).ready(function() {
 					</c:if>
 					</td>
                      <c:if test="${member.id == workLogDTO.id}">
-	                   <td>
+	                   <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
 						<a href="workLogUpdate?num=${workLogDTO.num}&state=${workLogDTO.state}"><input type="button" id="update" value="수정"></a>
 						<a href="workLogDelete?num=${workLogDTO.num}&id=${member.id}&state=${workLogDTO.state}&reg=${param.reg}&gra=${param.gra}&divi=${param.divi}"><input type="button" id="delete" value="삭제" onclick="return workLogDelete()"></a>
 						</td>

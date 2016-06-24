@@ -38,8 +38,21 @@
 		margin-top: 10px;
 		margin-left: 10px;
 	}	
+	
+	#info,#more{
+		border-top: none;
+	}
+	
+	#more{
+		text-align: right;
+	}
+	
+	#info{
+		font-size: 15px;
+	}
 		
 	.tddd{
+		font-size : 12px;
 		width:300px;
 		overflow:hidden;
 		text-overflow:ellipsis;

@@ -6,7 +6,7 @@
   <mapper namespace="BoardMapper">
   
   	<select id="preview" resultType="com.KHbiz.board.BoardDTO">
-  	select * from (select rownum R, A.* from (select * from board where kind=#{kind} order by num desc) A) where R between 1 and 4
+  	select * from (select rownum R, A.* from (select * from board where kind=#{kind} order by num desc) A) where R between 1 and 3
   	</select>
   
   	<insert id="reply" parameterType="com.KHbiz.board.ReplyDTO">
@@ -20,6 +20,10 @@
    <select id="boardView" resultType="com.KHbiz.board.BoardDTO">
   		select * from board where num=#{num}
   </select>  
+  
+  <select id="boardOnePreview" resultType="com.KHbiz.board.BoardDTO">
+  	select * from board where num=#{num}  
+  </select>
   
   <update id="countsUp" parameterType="java.lang.Integer">
   	update board set counts=counts+1 where num=#{num}

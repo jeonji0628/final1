@@ -14,7 +14,7 @@
    		height: 40px;
    		width : 600px;
    	}
-   	
+
    	#short{
    		width : 400px;
 		height : 40px;
@@ -26,7 +26,7 @@
    	#boardViewbtn_div2{
    		height: 40px;
    		width : 1000px;
-   		margin-left: 100px;   		
+   		margin-left: 70px;   		
    	}
    	
    	#col-lg-6{
@@ -170,6 +170,12 @@
     .table-responsive2{
    	   width: 900px;
        height: 365px;
+        }
+        
+        .table-responsive3{
+        	width: 700px;
+        	height: 500px;
+        	margin: 0 auto;
         }
    
     .table-size2{

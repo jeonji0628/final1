@@ -128,21 +128,20 @@ $(document).ready(function() {
 					 </div>
 					 	<tr class="active table-colname">
 	                   								
-		                    <td id="divisionWorkLog_num" style="padding-top: 13px;">번호</td>
-		                    <td id="divisionWorkLog_title" style="padding-top: 13px;">작성자</td>
-	                    	<td id="divisionWorkLog_writer" style="padding-top: 13px;">업무내용</td>
-	                    	
-	                    	<td id="divisionWorkLog_counts" style="padding-top: 13px;">업무결과</td>
-	                    	<td id="divisionWorkLog_noted" style="padding-top: 13px;">특이사항</td>
-	                    	<td id="divisionWorkLog_reg_date" style="padding-top: 13px;">작성일</td>
-	                    	<td id="divisionWorkLog_paymentState" style="padding-top: 13px;" colspan="2">결제상태</td>
-	                    	<td id="divisionWorkLog_paymentPerson" style="padding-top: 13px;">결제자(확인자) id</td>
+		                    <td id="divisionWorkLog_num" style="padding-top: 13px; border-bottom: 1px solid #ddd;">번호</td>
+		                    <td id="divisionWorkLog_title" style="padding-top: 13px; border-bottom: 1px solid #ddd;">ID</td>
+	                    	<td id="divisionWorkLog_writer" style="padding-top: 13px; border-bottom: 1px solid #ddd;">업무내용</td>	                    	
+	                    	<td id="divisionWorkLog_counts" style="padding-top: 13px; border-bottom: 1px solid #ddd;">업무결과</td>
+	                    	<td id="divisionWorkLog_noted" style="padding-top: 13px; border-bottom: 1px solid #ddd;">특이사항</td>
+	                    	<td id="divisionWorkLog_reg_date" style="padding-top: 13px; border-bottom: 1px solid #ddd;">작성일</td>
+	                    	<td id="divisionWorkLog_paymentState" style="padding-top: 13px; border-bottom: 1px solid #ddd;" colspan="2">결제상태</td>
+	                    	<td id="divisionWorkLog_paymentPerson" style="padding-top: 13px; border-bottom: 1px solid #ddd;">결제</td>
 	                    	<c:if test="${member.id == divisionWorkLogDTO.id}">
-	                    	<td id="aaaaa" style="padding-top: 13px;"></td>
+	                    		<td id="aaaaa" style="padding-top: 13px;  border-bottom: 1px solid #ddd;"></td>
 	                    	</c:if>				             
 	                   </tr>
-                   
-                   <c:forEach items="${divisionWorkLog1}" var="divisionWorkLogDTO" varStatus="i">                 		  	
+                   <c:forEach items="${divisionWorkLog1}" var="divisionWorkLogDTO" varStatus="i"> 	
+	                    	
                  		    <tr>
 		                    <td style="padding-top: 30px;">${divisionWorkLogDTO.num}</td>
 		                    <td style="padding-top: 30px;">${divisionWorkLogDTO.id}</td>
@@ -184,7 +183,7 @@ $(document).ready(function() {
 					</c:if>
 					</td>
                      <c:if test="${member.id == divisionWorkLogDTO.id}">
-	                   <td>
+	                   <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
 						<a href="divisionWorkLogUpdate?num=${divisionWorkLogDTO.num}&state=${divisionWorkLogDTO.state}"><input type="button" id="update" value="수정"></a>
 						<a href="divisionWorkLogDelete?num=${divisionWorkLogDTO.num}&id=${member.id}&state=${divisionWorkLogDTO.state}&reg=${param.reg}&gra=${param.gra}&divi=${param.divi}"><input type="button" id="delete" value="삭제" onclick="return divisionWorkLogDelete()"></a>
 						</td>
