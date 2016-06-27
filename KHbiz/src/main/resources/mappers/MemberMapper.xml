@@ -4,7 +4,32 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberMapper">
 
-
+	<insert id="join">
+		insert into member values(#{id},#{pw},#{name},#{mem_num},#{phone},#{email},#{division},#{position},
+		#{job},sysdate,#{address},#{mem_img},#{extention})
+	</insert>
+	
+	<select id="idCheck" resultType="com.KHbiz.member.MemberDTO">
+		select * from member where id=#{id}
+	</select>
+	
+	<update id="update" parameterType="com.KHbiz.member.MemberDTO">
+		update member set pw=#{pw}, mem_num=#{mem_num},phone=#{phone},email=#{email},division=#{division},position=#{position},job=#{job},
+		address=#{address},mem_img=#{mem_img},extention=#{extention} where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="com.KHbiz.member.MemberDTO">
+		delete from member where id=#{id}
+	</delete>
+	
+	<select id="idFindEmail" resultType="com.KHbiz.member.MemberDTO">
+		select id,pw from member where name=#{name} and email=#{email}
+	</select>
+	
+	<select id="idFindPhone" resultType="com.KHbiz.member.MemberDTO">
+		select id,pw from member where name=#{name} and phone=#{phone}
+	</select>
+	
 	<select id="login" resultType="com.KHbiz.member.MemberDTO">
 		select * from member where id=#{id} and pw = #{pw}
 	</select>

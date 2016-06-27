@@ -19,7 +19,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav " id="main-menu">
 					<li class="text-center">
-	                    <img src="<%= application.getContextPath() %>/resources/img/find_user.png" class="user-image img-responsive"/>
+	                    <a href="<%=application.getContextPath()%>/member/myInfo"><img src="<%= application.getContextPath() %>/resources/img/find_user.png" class="user-image img-responsive"/></a>
 					</li>	
                     <li class="side">
                         <a><i class="fa fa-clock-o fa-3x"></i> 출퇴근 관리<span class="fa arrow"></span></a>

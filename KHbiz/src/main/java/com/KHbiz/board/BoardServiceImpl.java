@@ -100,6 +100,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void boardWrite(BoardDTO boardDTO) {
+		System.out.println("dddd");
 		try {
 			boardDAO.boardWrite(boardDTO);
 		} catch (Exception e) {

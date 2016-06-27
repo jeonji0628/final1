@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +19,7 @@ import com.KHbiz.workLog.DivisionWorkLogService;
 @RequestMapping("/divisionWorkLog/*")
 public class DivisionWorkLogController {
 
-	@Inject
+	@Autowired
 	private DivisionWorkLogService divisionWorkLogService;
 	
 	@RequestMapping(value="/divisionWorkLogUpdate", method=RequestMethod.GET)
@@ -55,6 +56,8 @@ public class DivisionWorkLogController {
 		String id= ddto.getId();
 		String state = ddto.getState();
 		
+		System.out.println("divi:"+divi);
+		System.out.println("gra1:"+gra1);
 		divisionWorkLogService.divisionWorkLogUpdate(ddto);
 		return "redirect:/divisionWorkLog/divisionWorkLogList?id="+id+"&state="+state+"&reg="+reg+"&gra="+gra1+"&divi="+divi;
 		
@@ -106,10 +109,13 @@ public class DivisionWorkLogController {
 	}
 	
 	@RequestMapping(value="/divisionWorkLogWrite",method=RequestMethod.GET)
-	public void writeForm(){}
+	public void writeForm(){
+		
+		
+	}
 	
 	@RequestMapping(value="/divisionWorkLogWrite",method=RequestMethod.POST)
-	public String divisionWorkLogWrite(@ModelAttribute DivisionWorkLogDTO ddto, String gra,String divi, @RequestParam(value="reg", defaultValue="1") String reg ){
+	public String divisionWorkLogWrite(@ModelAttribute DivisionWorkLogDTO ddto, String gra,String divi, @RequestParam(value="reg", defaultValue="1") String reg, Model model ){
 		//division num* position job name id plan result noted state reg_date* upload* payment_state* payment_id* grade*
 		ddto.setPosition(gra);
 		if(gra.equals("사원")){
@@ -151,7 +157,6 @@ public class DivisionWorkLogController {
 			ddto.setReg_date(Date.valueOf(reg));
 		}
 		
-		
 		return "redirect:/divisionWorkLog/divisionWorkLogList?id="+id+"&state="+state+"&reg="+reg+"&gra="+gra1+"&divi="+divi1;
 	}
 	
@@ -161,6 +166,8 @@ public class DivisionWorkLogController {
 	public void divisionWorkLogList(@RequestParam(value="reg", defaultValue="1") String reg, DivisionWorkLogDTO ddto, Model model,String gra,String divi){
 		String gra1 = gra;
 		ddto.setPosition(gra);
+		System.out.println("asdasd");
+		System.out.println("일로옴");
 		if(gra1.equals("사원")){
 			ddto.setGrade(1);;
 		}else if(gra1.equals("주임")){
