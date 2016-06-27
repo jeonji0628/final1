@@ -50,7 +50,7 @@
                         <a><i class="fa fa-stack-overflow fa-3x"></i> 자원관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">자원목록</a>
+                                <a href="<%=application.getContextPath()%>/resources/allresources">자원목록</a>
                             </li>
                             <li>
                                 <a href="#">나의사용 내역</a>
@@ -61,17 +61,17 @@
                         <a><i class="fa fa-sign-in fa-3x"></i> 전자결재<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">걸재 상신</a>
+                                <a href="<%=application.getContextPath()%>/approval/approvalRegister?curpage=1&id=${member.id}">걸재 상신</a>
                             </li>
                             <li>
-                                <a href="#">결재 진행 조회</a>
+                                <a href="<%=application.getContextPath()%>/approval/reference?curpage=1&id=${member.id}">결재 조회</a>
                             </li>
                             <li>
-                                <a href="#">결재 완료함</a>
+                                <a href="<%=application.getContextPath()%>/approval/completeApproval?curpage=1&id=${member.id}">결재 완료함</a>
                             </li>
                         </ul>
                      </li>
-                     <li class="side">
+                    <!--  <li class="side">
                         <a><i class="fa fa-users fa-3x"></i> 프로젝트<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -84,7 +84,7 @@
                                 <a href="#">완료 프로젝트</a>
                             </li>
                         </ul>
-                     </li>
+                     </li> -->
                      <li class="side">
                         <a><i class="fa fa-envelope-o fa-3x"></i> 쪽지함<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -100,16 +100,13 @@
                         <a><i class="fa fa-sitemap fa-3x"></i> 조직구성<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                         	<li>
-                                <a href="#">부서 관리</a>
+                                <a href="<%=application.getContextPath()%>/organizationChart/division">부서 관리</a>
                             </li>
                             <li>
-                                <a href="#">부서별 사원관리</a>
+                                <a href="<%=application.getContextPath()%>/organizationChart/divisionChart?curpage=1">부서별 사원관리</a>
                             </li>
                             <li>
-                                <a href="organizationChart/allChart">사원 전체보기</a>
-                            </li>
-                            <li>
-                                <a href="#">직급관리</a>
+                                <a href="<%=application.getContextPath()%>/organizationChart/allChart?curpage=1">사원 전체보기</a>
                             </li>
                         </ul>
                       </li>
@@ -117,10 +114,7 @@
                         <a><i class="fa fa-calendar fa-3x"></i> 일정관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">개인 일정</a>
-                            </li>
-                            <li>
-                                <a href="#">부서 일정</a>
+                                <a href="<%=application.getContextPath()%>/schedule/scheduler?id=${member.id}">개인 일정</a>
                             </li>
                         </ul>
                       </li>

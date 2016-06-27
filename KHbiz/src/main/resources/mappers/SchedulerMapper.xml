@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SchedulerMapper">
+	
+	<select id="schedulerlist" resultType="com.KHbiz.schedule.scheduleDTO">
+		select * from scheduler where id=#{id}
+	</select>
+	<insert id="schedulerform">
+		insert into scheduler values(#{id}, #{name}, #{title}, #{contents}, #{dates})
+	</insert>
+	<update id="schedulerupdate">
+		update scheduler set title=#{title}, contents=#{contents} where id=#{id} and dates=#{dates}
+	</update>
+	<select id="schedulerview" resultType="com.KHbiz.schedule.scheduleDTO">
+		select * from scheduler where id=#{id} and dates=#{dates} and title=#{title}
+	</select>
+</mapper>
