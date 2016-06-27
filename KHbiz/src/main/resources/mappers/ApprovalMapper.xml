@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ApprovalMapper">
+
+	<select id="applist" resultType="com.KHbiz.approval.ApprovalListDTO">
+		select * from 
+		(select rownum R, C.* from 
+		(select B.* from approval B, 
+		(select num from form where id=#{id}) A where B.num = A.num) C)
+		 where R between #{start} and #{last} 
+	</select>
+	<update id="appupdate">
+	<foreach collection="list" item="ar"> 
+		update approval set status='결재만료' where num=#{ar}
+	</foreach>
+	</update>
+	<select id="count" resultType="int">
+		select count(num) from approval
+	</select>
+	
+	
+	<insert id="forminsert">
+		insert into form values(for_seq.nextVal, #{title}, #{decider1}, #{decider2}, #{contents}, #{startday}, #{lastday}, #{division}, #{position}, #{name} , #{id})
+	</insert>
+	<insert id="approval">
+		insert into approval values(app_seq.nextVal, #{title}, sysdate+3, '대기중', sysdate, '' ,'')
+	</insert>
+	
+	<select id="searchcount" resultType="int">
+		select count(num) from 
+		(select rownum R, C.* from 
+		(select B.* from approval B, (select num from form where id=#{id}) A where B.num = A.num) C) 
+		where
+		 <if test="search == 'title'">
+			title like '%${text}%'
+		</if>
+		<if test="search == 'num'">
+			num like '%${text}%'
+		</if>
+		<if test="search == 'status'">
+			status like '%${text}%'
+		</if>
+	</select>
+
+	<select id="searchApproval" resultType="com.KHbiz.approval.ApprovalListDTO">
+		select * from 
+		(select rownum R, C.* from 
+		(select B.* from approval B, 
+		(select num from form where id=#{id}) A where B.num = A.num) C)
+		 where
+		 <if test="search == 'title'">
+			title like '%${text}%'
+		</if>
+		<if test="search == 'num'">
+			num like '%${text}%'
+		</if>
+		<if test="search == 'status'">
+			status like '%${text}%'
+		</if>
+		 and R between #{start} and #{last}
+	</select>
+	
+	<select id="appselect" resultType="com.KHbiz.approval.ApprovalDTO">
+		select * from form where num=#{num}
+	</select>
+	<select id="appselect_img" resultType="com.KHbiz.approval.ApprovalListDTO">
+		select * from approval where num=#{num}
+	</select>
+	
+	<update id="formupdate">
+		update form set title=#{title}, decider1=#{decider1}, decider2=#{decider2}, contents=#{contents}, startday=#{startday}, lastday=#{lastday} where num=#{num}
+	</update>
+	<update id="approvalupdate">
+		update approval set status='진행중', app_date=sysdate where num=#{num}
+	</update>
+	<update id="approvalcomplete">
+		update approval set status='결재완료', com_date=sysdate where num=#{num}
+	</update>
+	
+	<delete id="formdelete">
+		delete form where num=#{num}
+	</delete>
+	<delete id="approvaldelete">
+		delete approval where num=#{num}
+	</delete>
+	
+	<!-- 받은 결재함 -->
+	<select id="receivelist" resultType="com.KHbiz.approval.ApprovalListDTO">
+		select * from 
+		(select rownum R, C.* from 
+		(select B.* from approval B, 
+		(select num from form where decider1=#{id}) A where B.num = A.num) C)
+		 where R between #{start} and #{last} 
+	</select>
+	
+	<select id="receivecount" resultType="int">
+		select count(num) from 
+		(select rownum R, C.* from 
+		(select B.* from approval B, 
+		(select num from form where decider1=#{id}) A where B.num = A.num) C)
+	</select>
+	<!-- 진행중인 결재 -->
+	<select id="ongoingapproval" resultType="com.KHbiz.approval.ApprovalDTO">
+		select * from (select * from approval where status='진행중') approval 
+		INNER JOIN (select * from form where  id=#{id})form on approval.num = form.num
+	</select>
+	
+	<!-- 결재자2 받은 완료함  -->
+	<select id="ceolist" resultType="com.KHbiz.approval.ApprovalListDTO">
+		select * from
+		(select rownum R, C.* from 
+		(select approval.* from 
+		(select * from approval where status='진행중') approval,form form where approval.num = form.num) C) 
+		where R between #{start} and #{last}
+	</select>
+	<select id="ceocount" resultType="int">
+		select count(num) from 
+		(select rownum R, C.* from 
+		(select form.* from 
+		(select * from approval where status='진행중') approval,form form where approval.num = form.num) C) 
+	</select> 
+	
+	<!-- 결재 완료함 -->
+	<select id="completelist" resultType="com.KHbiz.approval.ApprovalListDTO">
+		select * from
+		(select rownum R, C.* from 
+		(select approval.* from 
+		(select * from approval where status='결재완료') approval,(select * from form where id=#{id}) form where approval.num = form.num) C) 
+		where R between #{start} and #{last}
+	</select>
+	<select id="completecount" resultType="int">
+		select count(num) from
+		(select rownum R, C.* from 
+		(select approval.* from 
+		(select * from approval where status='결재완료') approval,(select * from form where id=#{id}) form where approval.num = form.num) C)
+	</select>
+	
+	<update id="approvalreturn">
+		update approval set status='반려' where num=#{num}
+	</update>
+</mapper>
