@@ -36,7 +36,7 @@
 	<context:component-scan base-package="com.KHbiz.project"></context:component-scan>
 	<context:component-scan base-package="com.KHbiz.adminIoT"></context:component-scan>
 	<context:component-scan base-package="com.KHbiz.resources"></context:component-scan>
-	<context:component-scan base-package="com.KHbiz.Approval"></context:component-scan>
+	<context:component-scan base-package="com.KHbiz.approval"></context:component-scan>
 	<context:component-scan base-package="com.KHbiz.schedule"></context:component-scan>
 	<context:component-scan base-package="com.KHbiz.board"></context:component-scan>
 	<context:component-scan base-package="com.KHbiz.commute"></context:component-scan>

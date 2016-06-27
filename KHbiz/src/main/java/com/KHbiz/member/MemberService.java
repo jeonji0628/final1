@@ -15,4 +15,6 @@ public interface MemberService {
 	public void AllChart(int curpage, Model model); //조직관리
 	public void searchChart(int curpage,String search, String text, Model model);
 	public void ChangeChart(MemberDTO memberDTO);
+	
+	public void searchApproval(String name,Model model);
 }

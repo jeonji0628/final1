@@ -1420,7 +1420,7 @@ th {
 .table > tfoot > tr > td {
   padding: 8px;
   line-height: 1.42857143;
-  vertical-align: top;
+  vertical-align: middle;
   border-top: 1px solid #ddd;
 }
 .table > thead > tr > th {
@@ -5136,7 +5136,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 1041;
   background-color: #000;
 }
 .modal-backdrop.fade {
@@ -5151,6 +5151,7 @@ button.close {
   min-height: 16.42857143px;
   padding: 5px;
   border-bottom: 1px solid #e5e5e5;
+  text-align: center;
 }
 .modal-header .close {
   margin-top: -2px;
@@ -5182,14 +5183,23 @@ button.close {
 @media (min-width: 768px) {
   .modal-dialog {
     width: 1000px;
-    margin: 250px auto;
+    margin: 100px auto;
   }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
             box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
   }
   .modal-sm {
-    width: 300px;
+    width: 400px;
+    margin: 120px auto;
+  }
+  .modal-select{
+  	width: 400px;
+  	margin: 100px auto;
+  }
+  .modal-book{
+  	width: 600px;
+  	margin: 150px auto;
   }
 }
 @media (min-width: 992px) {

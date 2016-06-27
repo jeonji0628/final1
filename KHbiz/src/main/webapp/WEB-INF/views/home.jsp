@@ -31,9 +31,43 @@
 	}
 
 </style>
+<script type="text/javascript">
+$(function(){
+	 function displayParsedData(data){
+         $("#weather-city").text(data.list[0].name);
+         $(".text-temp").text((data.list[0].main.temp-273).toFixed(1)+"℃");
+         var text = data.list[0].weather[0].description;
+         if(text == 'few clouds'){
+        	 $("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/cloudy.png");
+         }else if(text == 'scattered clouds' || text == 'broken clouds' || text == 'Clouds'){
+        	 $("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/clouds.png");
+         }else if(text == 'Sky is Clear'){
+        	$("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/sun.png");
+         }else if(text =='shower rain' || text =='rain' || text == 'light rain'){
+        	 $("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/rain.png");
+         }else if(text =='thunderstorm'){
+        	 $("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/storm.png");
+         }else if(text =='snow'){
+        	 $("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/snow.png");
+         }else if(text =='mist'){
+        	 $("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/mist.png");
+         }else if(text =='wind'){
+        	 $("#weather-icon").attr("src", "<%=application.getContextPath()%>/resources/img/wind.png");
+         }
+       }
+	
+	$.getJSON('http://openweathermap.org/data/2.1/find/city?lat=37.541&lon=126.986&callback=?', function(data) {
+        displayParsedData(data);
+      })
+    .fail(function() {
+      alert( "error" );
+    });
+})
+</script>
 </head>
 <body>
 <%-- <c:if test="${member ne null}"> --%>
+
 <div id="wrapper">  
 	<header><%@ include file="./header.jsp" %></header>
 	<%@ include file="./sider.jsp" %>
@@ -80,8 +114,9 @@
 			                    <i class="fa fa-sign-in icon_top"></i>
 			                </span>
 			                <div class="text-box" >
-			                    <p class="main-text">전자결재</p>
-			                    <p class="text-muted">Pending</p>
+			                    <p class="main-text"> <a href="<%=application.getContextPath()%>/approval/approvalRegister?curpage=1&id=${member.id}">전자 결재</a></p>
+			                    <p class="text-muted">Approval</p>
+			                    
 			                </div>
 			             </div>
 		     		</div>
@@ -119,9 +154,14 @@
                     
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel back-dash">
-                              <i class="fa fa-users fa-3x icon_top"></i>
-                              <strong> &nbsp; 프로젝트</strong>
-                              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing sit ametsit amet elit ftr. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                              <i class="fa fa-wrench fa-3x icon_top"></i>
+                              <strong style="font-size: 25px;"> &nbsp; 콘센트 </strong>
+                              <p class="text-muted">
+                              		회사 내 모든 콘센트를 제어.<br> 
+                              		콘센트를 제어 하기 위해서는 관리자의 승인이 필요.<br>
+                              		회사의 전기를 절약할 수 있다.
+                              </p>
+                              	
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12 ">
@@ -129,9 +169,12 @@
 				          <div class="main-temp-back">
 				            <div class="panel-body">
 				              <div class="row">
-				                <div class="col-xs-6"> <i class="fa fa-cloud fa-3x icon_top"></i> Newyork City </div>
+				                <div class="col-xs-6"> 
+				                	<img id="weather-icon" style="width: 50px; height: 40px;"><br>
+				                	<span id="weather-city"></span> 
+				                </div>
 				                <div class="col-xs-6">
-				                  <div class="text-temp"> 10° </div>
+				                  <div class="text-temp"></div>
 				                </div>
 				              </div>
 				            </div>

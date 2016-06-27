@@ -17,6 +17,18 @@ public class MemberServiceImpl implements MemberService {
 	private int perpage = 10;
 	
 	@Override
+	public void searchApproval(String name, Model model) {
+		List<MemberDTO> ar = null;
+		try {
+			ar = memberDAO.searchApproval(name);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		model.addAttribute("list", ar);
+	}
+	
+	@Override
 	public void ChangeChart(MemberDTO memberDTO) {
 		try {
 			memberDAO.changeChart(memberDTO);
@@ -32,16 +44,20 @@ public class MemberServiceImpl implements MemberService {
 		hs.put("search", search);
 		hs.put("text", text);
 		List<MemberDTO> ar = null;
-		/*Paging paging = null;*/
+		Paging paging = null;
 		try {
 			ar = memberDAO.searchChart(hs);
 			int total = ar.size();
-			Paging paging = new Paging(curpage, perpage, total);
+			if(ar.size() != 0){
+				paging = new Paging(curpage, perpage, total);
+				model.addAttribute("paging", paging);
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("result", ar);
+		
 	}
 	
 	@Override

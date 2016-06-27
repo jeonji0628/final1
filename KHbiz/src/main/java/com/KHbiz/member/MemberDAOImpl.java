@@ -16,6 +16,11 @@ public class MemberDAOImpl implements MemberDAO {
 	private static final String namespace = "MemberMapper.";
 	
 	@Override
+	public List<MemberDTO> searchApproval(String name) throws Exception {
+		return sqlSession.selectList(namespace+"searchApproval", name);
+	}
+	
+	@Override
 	public void changeChart(MemberDTO memberDTO) throws Exception {
 		sqlSession.update(namespace+"changeChart",memberDTO);
 		
@@ -35,7 +40,6 @@ public class MemberDAOImpl implements MemberDAO {
 	public List<MemberDTO> AllChart(HashMap<String, Integer> hs) throws Exception {
 		return sqlSession.selectList(namespace+"AllChart" , hs);
 	}
-	
 	
 	@Override
 	public MemberDTO login(MemberDTO memberDTO) throws Exception {

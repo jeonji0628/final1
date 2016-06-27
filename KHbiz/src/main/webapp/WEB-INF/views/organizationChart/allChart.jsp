@@ -61,7 +61,9 @@
                 			<td style="padding-top: 13px;">메일</td>
                 			<td style="padding-top: 13px;">직책</td>
                 			<td style="padding-top: 13px;">등록일</td>
-                			<td style="padding-top: 13px;">비고</td>
+                			<c:if test="${member.id eq 'admin'}">
+	                			<td style="padding-top: 13px;">비고</td>                			
+                			</c:if>
                 		</tr>
                 			
                 		<c:forEach items="${chart}" var="chart" varStatus="i">
@@ -75,17 +77,19 @@
 		                		<td>${chart.email}</td>
 		                		<td>${chart.job}</td>
 		                		<td>${chart.joindate}</td>
-		                		<td>
-		                			<button class="btn btn-danger square-btn-adjust updateChart" value="${i.index}">수정</button>
-		                			<div class="modal fade" id="modal-update">
-									  <div class="modal-dialog">
-									    <div class="modal-content">
-									        <!-- remote ajax call이 되는영역 -->
-									    </div>
-									  </div>
-									</div>
-		                			<button class="btn btn-danger square-btn-adjust" id="deleteChart">삭제</button>
-		                		</td>
+		                		<c:if test="${member.id eq 'admin' }">
+			                		<td>
+			                			<button class="btn btn-danger square-btn-adjust updateChart" value="${i.index}">수정</button>
+			                			<div class="modal fade" id="modal-update">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										        <!-- remote ajax call이 되는영역 -->
+										    </div>
+										  </div>
+										</div>
+			                			<button class="btn btn-danger square-btn-adjust" id="deleteChart">삭제</button>
+			                		</td>		                		
+		                		</c:if>
 	                		</tr>
                 		</c:forEach>
 					</table>
@@ -118,6 +122,3 @@
 	</div>
 </body>
 </html>
-
-
-

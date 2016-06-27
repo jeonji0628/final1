@@ -39,7 +39,12 @@
 		</if>
 	</select>
 	
+	
 	<update id="changeChart">
 		update member set name=#{name}, email=#{email}, division=#{division}, position=#{position}, job=#{job} where id=#{id}
 	</update>
+	
+	<select id="searchApproval" resultType="com.KHbiz.member.MemberDTO">
+		select * from member where name=#{name}
+	</select>
 </mapper>

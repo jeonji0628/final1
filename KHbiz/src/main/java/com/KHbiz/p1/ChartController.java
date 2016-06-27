@@ -17,12 +17,19 @@ public class ChartController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping(value="/division")
+	public void division(){
+	}
+	
+	@RequestMapping(value="/position")
+	public void position(){
+	}
+	
 	@RequestMapping(value="/changeChart" )
 	public String change(@ModelAttribute MemberDTO memberDTO){
 		memberService.ChangeChart(memberDTO);
 		return "redirect:/organizationChart/allChart?curpage=1";
 	}
-	
 	@RequestMapping(value="/updateChart")
 	public void update(@ModelAttribute MemberDTO memberDTO, Model model){
 		memberDTO = memberService.login(memberDTO);
@@ -44,4 +51,3 @@ public class ChartController {
 		memberService.AllChart(curpage,model);
 	}
 }
-

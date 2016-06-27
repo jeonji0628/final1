@@ -10,4 +10,5 @@ public interface MemberDAO {
 	 public int PagingChart() throws Exception;
 	 public List<MemberDTO> searchChart(HashMap<String, String> hs) throws Exception;
 	 public void changeChart(MemberDTO memberDTO) throws Exception;
+	 public List<MemberDTO> searchApproval(String name) throws Exception;
 }

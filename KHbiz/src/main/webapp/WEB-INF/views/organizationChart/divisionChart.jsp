@@ -10,16 +10,12 @@
 	<script src="<%= application.getContextPath() %>/resources/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<%= application.getContextPath() %>/resources/js/bootstrap.min.js" type="text/javascript"></script>
     <title>welcome KHbiz</title>
-	<!-- BOOTSTRAP STYLES-->
     <link href="<%= application.getContextPath() %>/resources/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
     <link href="<%= application.getContextPath() %>/resources/css/font-awesome.css" rel="stylesheet" />
-     <!-- MORRIS CHART STYLES-->
     <link href="<%= application.getContextPath() %>/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
     <link href="<%= application.getContextPath() %>/resources/css/custom.css" rel="stylesheet" />
-     <!-- GOOGLE FONTS-->
    	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   	
    	<link href="<%= application.getContextPath() %>/resources/css/divisionchart.css" rel="stylesheet" />
    	<link href="<%= application.getContextPath() %>/resources/css/allchart.css" rel="stylesheet" />
 	<script src="<%= application.getContextPath() %>/resources/js/allchart.js" type="text/javascript"></script>
@@ -106,7 +102,9 @@ $(function () {
 	                			<td style="padding-top: 13px;">직급</td>
 	                			<td style="padding-top: 13px;">메일</td>
 	                			<td style="padding-top: 13px;">직책</td>
-	                			<td style="padding-top: 13px;">비고</td>
+	                			<c:if test="${member.id eq 'admin' }">
+	                				<td style="padding-top: 13px;">비고</td>
+	                			</c:if>
 	                		</tr>
 	                			
 	                		<c:forEach items="${chart}" var="chart" varStatus="i">
@@ -119,17 +117,19 @@ $(function () {
 			                		<td>${chart.position}</td>
 			                		<td>${chart.email}</td>
 			                		<td>${chart.job}</td>
-			                		<td>
-			                			<button class="btn btn-danger square-btn-adjust updateChart" value="${i.index}">수정</button>
-			                			<div class="modal fade" id="modal-update">
-										  <div class="modal-dialog">
-										    <div class="modal-content">
-										        <!-- remote ajax call이 되는영역 -->
-										    </div>
-										  </div>
-										</div>
-			                			<button class="btn btn-danger square-btn-adjust" id="deleteChart">삭제</button>
-			                		</td>
+			                		<c:if test="${member.id eq 'admin' }">
+				                		<td>
+				                			<button class="btn btn-danger square-btn-adjust updateChart" value="${i.index}">수정</button>
+				                			<div class="modal fade" id="modal-update">
+											  <div class="modal-dialog">
+											    <div class="modal-content">
+											        <!-- remote ajax call이 되는영역 -->
+											    </div>
+											  </div>
+											</div>
+				                			<button class="btn btn-danger square-btn-adjust" id="deleteChart">삭제</button>
+				                		</td>
+			                		</c:if>
 		                		</tr>
 	                		</c:forEach>
 						</table>

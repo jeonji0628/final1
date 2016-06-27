@@ -11,7 +11,9 @@
 		<td style="padding-top: 13px;">메일</td>
 		<td style="padding-top: 13px;">직책</td>
 		<td style="padding-top: 13px;">등록일</td>
-		<td style="padding-top: 13px;">비고</td>
+		<c:if test="${member.id }">
+			<td style="padding-top: 13px;">비고</td>		
+		</c:if>
 	</tr>
 	<c:forEach items="${result}" var="result">
 		<tr>
@@ -23,10 +25,12 @@
 	 		<td>${result.email}</td>
 	 		<td>${result.job}</td>
 	 		<td>${result.joindate}</td>
-	 		<td>
-	 			<button class="btn btn-danger square-btn-adjust">수정</button>
-	 			<button class="btn btn-danger square-btn-adjust">삭제</button>
-	 		</td>
+	 		<c:if test="${member.id eq 'admin'}">
+		 		<td>
+		 			<button class="btn btn-danger square-btn-adjust">수정</button>
+		 			<button class="btn btn-danger square-btn-adjust">삭제</button>
+		 		</td>	 		
+	 		</c:if>
 		</tr>
 	</c:forEach>
 </table>

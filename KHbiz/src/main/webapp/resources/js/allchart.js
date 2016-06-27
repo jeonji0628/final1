@@ -1,7 +1,5 @@
 $(function(){
    			$("#go").click(function(){
-   				alert($(".select").val());
-   				alert($("#text").val());
    				$.ajax({
    					url : "searchChart",
    					type : "get",
@@ -11,7 +9,6 @@ $(function(){
    						text : $("#text").val()
    					},
    					success : function(result){
-   						alert(result);
    						$(".table-search").html(result);
    					}
    				});

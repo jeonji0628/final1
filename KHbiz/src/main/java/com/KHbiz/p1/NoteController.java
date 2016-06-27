@@ -40,6 +40,7 @@ public class NoteController {
 	}
 	@RequestMapping("/noteSend")
 	public String noteSend(NoteDTO noteDTO, Model model){
+		
 		int result= noteservice.sendNote(noteDTO);
 		if(result>0){
 			model.addAttribute("message", "글 작성 성공");
