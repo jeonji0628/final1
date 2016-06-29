@@ -154,7 +154,8 @@
 	                   <p>
 	                   </p>
 	                   <tr>
-	                   <td>파일 업로드</td><td><input type="file" name="file"></td>	                   
+	                   <td>이미지 업로드</td><td><input type="file" name="file"></td>	                   
+	                   <td>* 10메가바이트 이하의 이미지파일만 업로드 가능합니다</td>
 	                   </tr>
 	                   <c:if test="${divisionWorkLogDTO.payment_id != '1'}">
 		                    <tr>

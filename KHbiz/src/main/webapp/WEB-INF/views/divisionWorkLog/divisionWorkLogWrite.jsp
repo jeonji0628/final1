@@ -139,7 +139,8 @@
 	                   <p>
 	                   </p>
 	                   <tr>
-	                   <td>파일 업로드</td><td><input type="file" name="file"></td>
+	                   <td>이미지 업로드</td><td><input type="file" name="file"></td>
+	                   <td>* 10메가바이트 이하의 이미지파일만 업로드 가능합니다</td>
 	                   </tr>	                  
 	                   <input type="hidden" value="${member.id}" name="id">
 						<input type="hidden" name="divi" value="${member.division}">
