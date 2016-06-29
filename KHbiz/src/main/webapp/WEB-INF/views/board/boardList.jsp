@@ -37,7 +37,7 @@
 
 
 <div id="page-wrapper" >
-          <div id="page-inner">  
+          <div id="page-inner2">  
         	<hr/>
         	<!-- hidden state  -->
         	<input type="hidden" id="state" value="${param.kind}">

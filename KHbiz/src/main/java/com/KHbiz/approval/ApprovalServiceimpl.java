@@ -210,7 +210,7 @@ public class ApprovalServiceimpl implements ApprovalService{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(ar.size() == 0){
+		if(ar.size() == 0 || ar == null){
 			model.addAttribute("result", "진행중인 결재가 없습니다.");
 		}else{
 			for (int i = 0; i < ar.size(); i++) {

@@ -3,6 +3,7 @@ package com.KHbiz.resources;
 public class ResourcesDTO {
 	private int code;
 	private String name;
+	
 	public int getCode() {
 		return code;
 	}

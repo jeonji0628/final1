@@ -131,15 +131,27 @@
 	                   </tr>
 	                   <p>
 	                   </p>
+	                   <c:if test="${workLogOne.upload != null and workLogOne.upload != '1'}">
 	                   <tr>
-	                   <td>파일 업로드</td><td><input type="file" name="upload"></td>
-	                   </tr>
+	                   <td>파일 업로드</td><td><img src="${pageContext.request.contextPath}/resources/fileimg/${workLogOne.upload}" width="100%" height="210px"></td>
+	                    </tr>
+	                  	</c:if>
 	                   <c:if test="${workLogOne.payment_id != '1'}">
 		                    <tr>
 								<td colspan="1">결제자</td><td><input style="width:10px;" type="text" readonly="readonly" id="payment_id1">${workLogOne.payment_id}</td>
 							</tr>
 							<tr>
-								<td style="width:90px;">결제상태</td><td colspan="2"><input type="text" readonly="readonly" id="payment_idSpan"></td>
+								<td style="width:90px;">결제상태</td><td colspan="2">
+									<c:if test="${workLogOne.payment_state eq '1'}">
+										미결제
+									</c:if>
+									<c:if test="${workLogOne.payment_state eq '2'}">
+										결제완료
+									</c:if>
+									<c:if test="${workLogOne.payment_state eq '3'}">
+										수정후 다시 제출 요망
+									</c:if>
+								</td>
 							</tr>
 						</c:if>	
 							

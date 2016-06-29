@@ -71,7 +71,7 @@
 			</div>
 			<div class="table-responsive2">
 	               <table  class="table">
-	        			<form action="workLogWrite" method="post">
+	        			<form action="workLogWrite" method="post" enctype="multipart/form-data">
 	        			<tr  class="active table-colname">
 	                   	<td class="board_title" style="padding-top: 16px; padding-left: 10px;">
 	        				작성자
@@ -138,7 +138,7 @@
 	                   <p>
 	                   </p>
 	                   <tr>
-	                   <td>파일 업로드</td><td><input type="file" name="upload"></td>
+	                   <td>파일 업로드</td><td><input type="file" name="file"></td>
 	                   </tr>	                  
 	                   <input type="hidden" value="${member.id}" name="id">
 						<input type="hidden" name="divi" value="${member.division}">

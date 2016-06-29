@@ -22,7 +22,7 @@
 	
 	
 	<insert id="forminsert">
-		insert into form values(for_seq.nextVal, #{title}, #{decider1}, #{decider2}, #{contents}, #{startday}, #{lastday}, #{division}, #{position}, #{name} , #{id})
+		insert into form values(for_seq.nextVal, #{title}, #{decider1}, #{decider2}, #{contents}, #{startday}, #{lastday}, #{division}, #{position}, #{name} , #{id}, '', '','')
 	</insert>
 	<insert id="approval">
 		insert into approval values(app_seq.nextVal, #{title}, sysdate+3, '대기중', sysdate, '' ,'')

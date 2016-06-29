@@ -105,8 +105,7 @@ public class WorkLogServiceImpl implements WorkLogService {
 				}else{
 					ar.get(i).setPayment_state("미결제");
 				}
-			}
-			System.out.println(ar.get(0).getDivision());
+			}			
 			model.addAttribute("personalWorkLog",ar);			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

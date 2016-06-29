@@ -82,7 +82,7 @@
 			</div>
 			<div class="table-responsive2">
 	               <table  class="table">
-	        			<form action="divisionWorkLogUpdate" method="post">
+	        			<form action="divisionWorkLogUpdate" method="post" enctype="multipart/form-data">
 	        			<tr  class="active table-colname">
 	                   	<td class="board_title" style="padding-top: 16px; padding-left: 10px;">
 	        				작성자
@@ -154,7 +154,7 @@
 	                   <p>
 	                   </p>
 	                   <tr>
-	                   <td>파일 업로드</td><td><input type="file" name="upload"></td>
+	                   <td>파일 업로드</td><td><input type="file" name="file"></td>	                   
 	                   </tr>
 	                   <c:if test="${divisionWorkLogDTO.payment_id != '1'}">
 		                    <tr>
@@ -164,6 +164,7 @@
 								<td style="width:90px;">결제상태</td><td colspan="2"><input type="text" readonly="readonly" id="payment_idSpan"></td>
 							</tr>
 						</c:if>	
+							<input type="hidden" name="file2" value="${divisionWorkLogDTO.upload}">
 							<input type="hidden" name="id" value="${member.id}">
 							<input type="hidden" name="gra" value="${divisionWorkLogDTO.grade}">
 							<input type="hidden" name="divi" value="${divisionWorkLogDTO.division}">

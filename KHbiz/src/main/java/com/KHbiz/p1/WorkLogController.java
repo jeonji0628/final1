@@ -1,7 +1,10 @@
 package com.KHbiz.p1;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -9,10 +12,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.KHbiz.workLog.WorkLogDAO;
 import com.KHbiz.workLog.WorkLogDTO;
@@ -23,6 +28,14 @@ public class WorkLogController {
 	
 	@Inject
 	private WorkLogService workLogService;
+		
+	private String uploadFile(String originalName , byte[] fileData,String uploadPath ) throws Exception{
+		UUID uid = UUID.randomUUID();
+		String savedName = uid.toString() + "_" + originalName;
+		File target = new File(uploadPath,savedName);
+		FileCopyUtils.copy(fileData, target);
+		return savedName;
+	}
 	
 	//글쓰기 폼
 	@RequestMapping(value="/workLogWrite",method=RequestMethod.GET)
@@ -39,10 +52,31 @@ public class WorkLogController {
 	public void updateForm(@RequestParam int num, Model model){
 		workLogService.workLogUpdateForm(num, model);
 	}
-	
-	
+		
 	@RequestMapping(value="workLogUpdate",method=RequestMethod.POST)
-	public String workLogUpdate(@ModelAttribute WorkLogDTO wdto,@RequestParam(value="reg", defaultValue="1") String reg, String gra, String divi){
+	public String workLogUpdate(@ModelAttribute WorkLogDTO wdto,@RequestParam(value="reg", defaultValue="1") String reg,String file2,MultipartFile file, HttpServletRequest request, String gra, String divi){
+		
+		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/fileimg");
+		String savedName;
+		try {
+			if(file.getSize() == 0 && wdto.getUpload().equals("1")){
+				wdto.setUpload(file2);			
+			}else{
+				savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),uploadPath);
+				if(file.getOriginalFilename() == ""){
+					savedName = "1";
+					wdto.setUpload(savedName);
+				}else{
+					wdto.setUpload(savedName);
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String gra1 = gra;
 		if(gra.equals("사원")){
 			wdto.setGrade(1);
@@ -76,7 +110,26 @@ public class WorkLogController {
 	
 	//글쓰기
 	@RequestMapping(value="/workLogWrite",method=RequestMethod.POST)
-	public String workLogWrite(@ModelAttribute WorkLogDTO wdto,String gra, String divi,@RequestParam(value="reg", defaultValue="1") String reg){
+	public String workLogWrite(@ModelAttribute WorkLogDTO wdto,String gra,MultipartFile file, HttpServletRequest request, String divi,@RequestParam(value="reg", defaultValue="1") String reg){
+		
+		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/fileimg");
+		try {
+			String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(),uploadPath);
+			if(file.getOriginalFilename() == ""){
+				savedName = "1";
+				wdto.setUpload(savedName);
+			}else{
+				wdto.setUpload(savedName);
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		if(gra.equals("사원")){
 			wdto.setGrade(1);
 		}else if(gra.equals("주임")){
