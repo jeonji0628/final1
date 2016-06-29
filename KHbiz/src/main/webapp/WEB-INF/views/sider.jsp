@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,13 +26,10 @@
                         <a><i class="fa fa-clock-o fa-3x"></i> 출퇴근 관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">출퇴근 입력</a>
+                                <a onclick="commuteList2()">출퇴근 입력</a>
                             </li>
                             <li>
-                                <a href="#">출퇴근 조회</a>
-                            </li>
-                            <li>
-                                <a href="#">출퇴근 통계</a>
+                                <a onclick="commuteSearch2()">출퇴근 내역 조회</a>
                             </li>
                         </ul>
                      </li>
@@ -135,21 +133,69 @@
                             </li>
                         </ul>
                       </li>
-						<li class="side">
-                        <a><i class="fa fa-wrench fa-3x"></i> 콘센트 제어<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                           <li>
-                                <a href="#">콘센트 등록</a>
-                            </li>
-                            <li>
-                                <a href="#">등록 내역</a>
-                            </li>
-                            <li>
-                                <a href="#">온/오프 제어</a>
-                            </li>
-                        </ul>
-                      </li>                   
+                      	<c:if test="${member.id eq 'admin'}">
+							<li class="side">
+	                        <a><i class="fa fa-wrench fa-3x"></i> 콘센트 제어<span class="fa arrow"></span></a>
+	                        <ul class="nav nav-second-level">
+	                           <li>
+	                                <a onclick="iotView()">콘센트 등록</a>
+	                           </li>
+	                           <li>
+	                                <a onclick="iotUpdate()">콘센트 제어</a>
+	                           </li>
+	                        </ul>
+	                      </li>     
+                      </c:if>              
                 </ul>
+                
+                <!-- hidden IoT form -->
+                <!-- 콘센트 등록 -->
+                <form name="iotView_frm" action="<%= application.getContextPath() %>/adminIoT/iotView" method="post">
+                	
+                </form>
+                <!-- 콘센트 업데이트  -->
+                <form name="iotUpdate_frm" action="<%= application.getContextPath() %>/adminIoT/updateConcent" method="post">
+                	
+                </form>
+                <!-- 출퇴근 내역보기  -->
+                <form name="commute_form2" action="<%= application.getContextPath()%>/commute/commuteList" method="post">
+	                   <input type="hidden" name="id" value="${member.id }"> 
+                </form>
+                
+                <!-- 출퇴근 조회  -->
+                <form name="commuteSearch_frm2" action="<%= application.getContextPath()%>/commute/commuteSearch" method="post">
+	        		<input type="hidden" name="id" value="${member.id}">
+	        	</form>
+	        	
+	        	<!-- 보낸 쪽지함  -->
+	        	<%-- <form name="sider_note1"  action="<%= application.getContextPath()%>/note/noteList" method="post">
+	        		<input type="hidden" name="id" value="${member.id}">
+	        		<input type="hidden" name="state" value="1">
+ 	        	</form> --%>
+                
+                <script type="text/javascript">
+                	//콘센트 등록
+                	function iotView() {
+                		iotView_frm.submit();
+					}
+                	//콘센트 업데이트
+                	function iotUpdate() {
+                		iotUpdate_frm.submit();
+					}
+                	//출퇴근 내역
+                	function commuteList2() {
+                		commute_form2.submit();
+					}
+                	//출퇴근 조회
+                	function commuteSearch2() {
+                		commuteSearch_frm2.submit();
+					}
+                	function sider_note2() {
+                		alert("asd");
+                		sider_note1.submit();
+					}
+                </script>
+                
             </div>
         </nav>  
         <!-- /. NAV SIDE  -->

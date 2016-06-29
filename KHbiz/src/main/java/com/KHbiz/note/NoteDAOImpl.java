@@ -18,6 +18,13 @@ public class NoteDAOImpl implements NoteDAO {
 	
 	private static final String NAMESPACE="NoteMapper.";
 	
+	
+	@Override
+	public int noteToConut(String id) {
+		// TODO Auto-generated method stub
+	
+		return sqlSession.selectOne(NAMESPACE+"noteToConut", id);
+	}
 	//읽음처리
 	@Override
 	public int noteReadUpdate(int num) {
@@ -66,11 +73,9 @@ public class NoteDAOImpl implements NoteDAO {
 	}
 	@Override
 	public int count(int state, String id) {
-		
 		NoteDTO noteDTO = new NoteDTO();
 		noteDTO.setSend_id(id);
 		noteDTO.setState(state);
-		
 		return sqlSession.selectOne(NAMESPACE+"count", noteDTO);
 	}
 }

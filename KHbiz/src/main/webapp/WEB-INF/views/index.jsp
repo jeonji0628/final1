@@ -24,6 +24,7 @@
 				<div id="loginForm">
 					<div id="loginForm2">
 						<form action="./memberLogin" method="post">
+						
 							<table id="table1" >
 								<tr>
 									<td ><img src="./resources/img/ch_id_title.gif"></td>

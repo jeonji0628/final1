@@ -51,7 +51,7 @@ public class NoteController {
 		return "redirect:/note/noteList?id="+id+"&state="+view_state;
 	}
 	
-	@RequestMapping("/noteList")
+	@RequestMapping(value="/noteList")
 	public String notePage(@RequestParam(defaultValue="1") int curPage, Model model, String id, @RequestParam(defaultValue="1") int state, String num){
 		//state 받은메세지
 		//보낸메시지 상태

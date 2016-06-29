@@ -6,10 +6,14 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.KHbiz.member.MemberService;
+import com.KHbiz.note.NoteService;
 
 /**
  * Handles requests for the application home page.
@@ -19,16 +23,18 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	
+	@Autowired
+	NoteService noteService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		//index Page로 이동
 		return "index";
 	}
 	@RequestMapping(value = "/home")
-	public void home(){
+	public void home(String id, Model model){
+		
 	}
 	
 	@RequestMapping(value = "/memberLogin")

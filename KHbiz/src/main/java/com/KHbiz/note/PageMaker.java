@@ -27,6 +27,7 @@ public class PageMaker {
 	
 	public PageMaker(int curPage, int totalCount){
 		//curPage 현재 페이지
+		
 		perPage = 5; //보이는 페이지 수
 		perBlock = 5; // 블럭당 페이지 수 
 		setMember(curPage, totalCount);

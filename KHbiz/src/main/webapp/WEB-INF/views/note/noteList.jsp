@@ -28,6 +28,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
 <script type="text/javascript">
 	function titleClick(i) {
 		var id =$("#id"+i).val();
@@ -35,7 +36,6 @@
 		var contents=$("#contents"+i).val();
 		var state=$("#state").val();
 		var num=$("#select_num"+i).val();
-		
 		$.ajax({
             url : "./noteTitleListModel" ,
             data : {
@@ -102,6 +102,11 @@
 		
 	});
 </script>
+<style type="text/css">
+	a:HOVER {
+		
+	}
+</style>
 </head>
 <body>
 <div id="wrapper">  
@@ -141,6 +146,7 @@
 	                    <td id="note_sendid" style="padding-top: 13px;">보낸이</td>
 	                    <td id="note_contents" style="padding-top: 13px;">제목</td>
                     	<td id="note_data" style="padding-top: 13px;">날짜</td>
+                    	<td id="note_check" style="padding-top: 13px;">상태</td>
 					</c:if>
 					
 					
@@ -155,19 +161,19 @@
                    </tr>
                    
                    <c:forEach items="${noteList }" var="nl" varStatus="i">
-	                   <tr>
+	                   <tr style="border-bottom:1px solid #ddd;">
 	                   	<td>
 	                   		<input id="select_ck${i.index}" class="checkbox_size" type="checkbox" onclick="check_ck(${i.index})">
 	                   	</td>
 	                   	
 	               		<td>
 	               		<c:if test="${pageMaker.state eq 1}">
-		               		${nl.send_id}
-		               		<input id="id${i.index}" type="hidden" value="${nl.send_id}">
+		               		<span class="read_color${i.index }">${nl.send_id}</span>
+		               		<input class="read_color${i.index }" id="id${i.index}" type="hidden" value="${nl.send_id}">
 		               	</c:if>
 		               	<c:if test="${pageMaker.state eq 2}">
-		               		${nl.to_id}
-		               		<input id="id${i.index}" type="hidden" value="${nl.to_id}">
+		               		<span class="read_color${i.index }">${nl.to_id}</span>
+		               		<input class="read_color${i.index }" id="id${i.index}" type="hidden" value="${nl.to_id}">
 		               	</c:if>
 		               	
 		               		<!-- num 가져와서 삭제  -->
@@ -176,14 +182,40 @@
 	               		
 	          			<td>
 	          				<a data-toggle="modal"  data-target="#myModal"  onclick="titleClick(${i.index})">
-	          					<span id="title${i.index}" >${nl.title}</span>
+	          					<span class="read_color${i.index }" id="title${i.index}" >${nl.title}</span>
 	          				</a>
           				</td>
 	       				<td>
-	       					 <span id="date${i.index }">${nl.reg_date }</span> 
+	       					 <span class="read_color${i.index }" id="date${i.index }">${nl.reg_date }</span> 
 	       					 <input type="hidden" id="contents${i.index }" value="${nl.contents }">
        					</td>
-	       				
+	       				<c:if test="${pageMaker.state eq 1}">
+       					
+       						<c:if test="${nl.state eq 0}">
+       							
+       							<script type="text/javascript">
+									$(document).ready(function () {
+										var text = $("#text2323").val();
+										var number31 = $("#number31").val();
+										if(text == 0){
+											$(".read_color"+number31).css("color", "#0459c1");
+											
+										}
+									});
+       							</script>
+       							
+       							<td>
+       								<span class="read_color${i.index }">읽지않음</span>
+       								<input  id="text2323" type="hidden" value="${nl.state}">
+       								<input id="number31" type="hidden" value="${i.index }">
+   								</td>
+       						</c:if>
+       						
+       						<c:if test="${nl.state eq 1}">
+       							<td>읽음</td>
+       						</c:if>
+       						
+       					</c:if>
        					<c:if test="${pageMaker.state eq 2}">
        					
        						<c:if test="${nl.state eq 0}">
@@ -195,6 +227,9 @@
        						</c:if>
        						
        					</c:if>
+	                   </tr>
+	                   <tr >
+	                   
 	                   </tr>
                    </c:forEach>
                    
@@ -256,6 +291,7 @@
 			  		  <div id="modal_div">
             
            			  </div>
+           			  
 			    </div>
 			  </div>
 			</div>

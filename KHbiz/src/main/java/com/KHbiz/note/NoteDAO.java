@@ -6,6 +6,9 @@ import java.util.List;
 import com.KHbiz.member.MemberDTO;
 
 public interface NoteDAO {
+	
+	//메세지 받은 것 안읽은 갯수 카운트
+	public int noteToConut(String id);
 	//메세지 보낼 사람 찾기
 	public List<MemberDTO> search(MemberDTO mdto);
 	// 메세지 보내기

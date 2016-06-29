@@ -5,6 +5,10 @@
 <mapper namespace="NoteMapper">
 	
 	
+	<select id="noteToConut" resultType="java.lang.Integer">
+		select count(num) from note where to_id=#{id} and state=0 and to_del='N'
+	</select>
+	
 	<update id="noteReadUpdate" parameterType="com.KHbiz.note.NoteDTO">
 		update note set state=1 where num=#{num}
 	</update>

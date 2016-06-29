@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommuteMapper">
+	<!-- 월별로 뽑아오기  -->
+	<select id="commuteSearch" resultType="com.KHbiz.commute.CommuteDTO">
+		select * from COMMUTE where id=#{id} and reg_date like '${reg_date}%'
+	</select>
+	<!-- 하나의 회원 정보 가져오기  -->
+	<select id="memberSearch" resultType="com.KHbiz.member.MemberDTO">
+		select * from member where id=#{id}
+	</select>
+	<!-- 회원 이름 가져오기  -->
+	<select id="memberList" resultType="com.KHbiz.member.MemberDTO">
+		select * from member 
+	</select>
+	<!-- 회원 리스트 뽑아오기  -->
+	<select id="commuteList" resultType="com.KHbiz.commute.CommuteDTO">
+		select * from COMMUTE where id=#{id} order by num desc
+	</select>
+	<!-- 회원 상태 업데이트  -->
+	<update id="commuteStateUpdate" parameterType="com.KHbiz.commute.CommuteDTO">
+		UPDATE COMMUTE SET state=#{state}, total_h=#{total_h}, total_m=#{total_m} WHERE ID=#{id} and REG_DATE=#{reg_date}
+	</update>
+	
+	<!-- 비고 등록  -->
+	<update id="commuteMemoUpdate" parameterType="com.KHbiz.commute.CommuteDTO">
+		UPDATE COMMUTE SET MEMO=#{memo} WHERE ID=#{id} and REG_DATE=#{reg_date}
+	</update>
+	<!-- 출근 중복 체크  -->
+	<select id="commuteCheck" resultType="com.KHbiz.commute.CommuteDTO">
+		select * from commute where id=#{id} and reg_date=#{reg_date}
+	</select>
+	
+	<!-- 출근 시간 등록 -->
+	<insert id="commuteInsert" parameterType="com.KHbiz.commute.CommuteDTO">
+		insert into COMMUTE (num,id,reg_date,starttime) values (commute_seq.nextVal,#{id},#{reg_date},#{starttime})
+	</insert>
+	<!-- 퇴근 시간 등록  -->
+	<update id="commuteOutUpdate" parameterType="com.KHbiz.commute.CommuteDTO"> 
+		UPDATE COMMUTE SET FINTIME=#{fintime} WHERE ID=#{id} and REG_DATE=#{reg_date}
+	</update>
+</mapper>

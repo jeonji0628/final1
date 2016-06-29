@@ -1,0 +1,159 @@
+@CHARSET "UTF-8";
+.table-size{
+	height: 853px;
+}
+a{
+	color: gray;
+	cursor: pointer;
+}
+a:HOVER{
+	color: gray;
+}
+#commute_s_mid{
+	margin-top : 22px;
+	width: 100%;
+	height: 57px;
+	background-color: #f5f5f5;
+}
+#commute_s_m_top{
+    padding-top: 10px;
+}
+#commute_s_table1{
+	margin: 5px auto;
+	font-size:  20px;
+	font-weight: 300;
+}
+#commute_s_sub1{
+	background-color: #c9302c;
+	border: 1px solid #c9302c; 
+	color: white;
+    height: 31px;
+    width: 80px;
+    font-weight: 600px;
+}
+#commute_s_m_mid2{
+	
+	margin-top : 50px;
+	width: 100%;
+	height: 70px;
+	
+}
+#commute_s_m_mid3{
+	margin-top : 50px;
+	width: 100%;
+	height: 70px;
+}
+#commute_s_m_mid4{
+	margin-top : 2px;
+	width: 100%;
+	height: 70px;
+}
+#commute_s_m_td3{
+	width: 600px;
+	text-align: center;
+	height: 45px;
+	border: solid 1px #eee; 
+}
+
+.commute_s_m_td1{
+	background-color: #f5f5f5;
+	text-align:  center;
+	height: 45px;
+    width: 200px;
+    border: solid 1px #eee; 
+}
+.commute_s_m_td2{
+	text-align:  center;
+	height: 45px;
+    width: 200px;
+    border: solid 1px #eee; 
+}
+
+#commute_mid{
+	width: 100%;
+	height: 350px;
+	margin-top: 10px;
+
+}
+#commute_mid_left{
+	width: 60%;
+	height: 350px;
+	float: left;
+}
+#commute_mid_right{
+	width: 40%;
+	height: 350px;
+	float: right;
+}
+#commute_text{
+	font-size: 37px;
+	font-weight: bold;
+}
+#commute_text2{
+	font-size: 18px;
+	color: #555;
+}
+.commute_btn1{
+	width : 162px;
+	height : 70px;
+	background-color: #d2322d;
+	color: white;
+	font-size : 25px;
+	font-weight: bold;
+	border-radius : 5px;
+    border: 1px solid #d2322d;
+}
+
+#commute_td1{
+	width: 40px;
+}
+#commute_td6{
+	padding-top: 14px;
+}
+#commute_hr{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 342px;
+}
+#commute_table2{
+	background-color: #F3F3F3;
+	border-radius : 7px;
+	font-size: 15px;
+}
+#commute_table3{
+	text-align: center;
+}
+.commute_td2{
+	width: 253px;
+	height: 40px;
+}
+.commute_td3{
+	width: 90px;
+	padding-left: 13px;
+}
+#commute_bottom{
+	width: 100%;
+	height : 423px;
+}
+#commute_td4{
+	text-align: center;
+	font-size: 18px; 
+	padding-top: 12px;
+}
+.commute_td5{
+	width: 225px;
+    height: 50px;
+    padding-top: 50px;
+}
+#clock{
+    
+    width: 480px;
+    height: 220px;
+    margin-top: 45px;
+
+    
+}
+.display{
+    height: 150px;
+    margin-top: 10px;
+}

@@ -28,9 +28,18 @@
 	a:hover {
 		color: red;
 		text-decoration: none;
+		cursor: pointer;
 	}
 
 </style>
+<script type="text/javascript">
+	function commuteGo() {
+		commute_form.submit();
+	}
+	function noteGo() {
+		note_form.submit();
+	}
+</script>
 </head>
 <body>
 <div id="wrapper">  
@@ -45,10 +54,20 @@
                 			<span class="icon-box bg-color-red set-icon">
                     			<i class="fa fa-envelope-o icon_top"></i>
                 			</span>
-	                		<div class="text-box" >
-	                    		<a href="<%= application.getContextPath()%>/note/noteList?id=${member.id }&state=1"><p class="main-text">쪽지함</p></a>
-	                    		<p class="text-muted">Messages</p>
-	                		</div>
+                			<form name="note_form" action="<%= application.getContextPath()%>/note/noteList" method="post">
+		                		<div class="text-box" >
+		                			<input type="hidden" name="id" value="${member.id }">
+		                    		<a onclick="noteGo()">
+		                    			<p class="main-text">쪽지함</p>
+	                    			</a>
+		                    		<p class="text-muted">
+		                    			Messages &nbsp;
+		                    			<c:if test="${message_to ne null}">
+		                    				<span class="badge">${message_to}</span>
+		                    			</c:if>
+	                    			</p>
+		                		</div>
+	                		</form>
              			</div>
 		     		</div>
                     <div class="col-md-3 col-sm-6 col-xs-6">           
@@ -67,10 +86,14 @@
 			                <span class="icon-box bg-color-blue set-icon">
 			                    <i class="fa fa-clock-o icon_top"></i>
 			                </span>
-			                <div class="text-box" >
-			                   <a href="<%= application.getContextPath()%>/commute/commuteList"><p class="main-text">근태관리</p></a>
-			                    <p class="text-muted">Notifications</p>
-			                </div>
+			                
+			                <form name="commute_form" action="<%= application.getContextPath()%>/commute/commuteList" method="post">
+				                <div class="text-box" >
+				                   <a onclick="commuteGo()" ><p class="main-text" >근태관리</p></a>
+				                   <p class="text-muted">Notifications</p>
+				                   <input type="hidden" name="id" value="${member.id }"> 
+				                </div>
+			                </form>
 			             </div>
 					</div>
                     <div class="col-md-3 col-sm-6 col-xs-6">           

@@ -18,10 +18,15 @@ public class NoteServiceImpl implements NoteService {
 	NoteDAO notedao;
 	
 	
-	
+	@Override
+	public int noteToConut(String id) {
+		
+		return notedao.noteToConut(id);
+	}
 	@Override
 	public void noteReadUpdate(int num) {
-		
+		//0 안읽은 상태
+		//1 읽은 상태
 		notedao.noteReadUpdate(num);
 	}
 	@Override

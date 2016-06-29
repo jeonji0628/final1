@@ -23,8 +23,8 @@
                 <a class="navbar-brand" href="<%=application.getContextPath()%>/home">KHbiz Group</a> 
             </div>
 		  <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> 
-		  	${member.name }님 환영합니다&nbsp; 
-		  	<a href="<%= application.getContextPath()%>/memberLogout" class="btn btn-danger square-btn-adjust">Logout</a> 
+		  		${member.name }님 환영합니다&nbsp; 
+		  	<a style="color: white;" href="<%= application.getContextPath()%>/memberLogout" class="btn btn-danger square-btn-adjust">Logout</a> 
 		  </div>
   </nav> 
 </body>

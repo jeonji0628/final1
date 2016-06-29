@@ -118,6 +118,7 @@
 	                   </tr>
 	                   
 	                   <tr>
+	                   
 	                   	<!-- contents -->
 	                   	<td colspan="2" style="padding-top: 13px;">
 	                   		<textarea id="contents" name="contents" rows="10" cols="64.5"></textarea>

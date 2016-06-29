@@ -87,7 +87,7 @@ img {
   border: 0;
 }
 svg:not(:root) {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 figure {
   margin: 1em 40px;
@@ -275,7 +275,6 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.42857143;
   color: #333;
   background-color: #fff;
 }
@@ -1789,7 +1788,7 @@ fieldset[disabled] input[type="radio"],
 fieldset[disabled] input[type="checkbox"],
 fieldset[disabled] .radio,
 fieldset[disabled] .radio-inline,
-fieldset[disabled] .checkbox,
+fieldset[disa-bled] .checkbox,
 fieldset[disabled] .checkbox-inline {
   cursor: not-allowed;
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IoTMapper">
+
+	<!-- 콘센트 상태 업데이트  -->
+	<update id="concentUpdate" parameterType="com.KHbiz.adminIoT.adminIoTDTO">
+		update IOT set con_state=#{con_state} where num=#{num}
+	</update>
+	
+	<select id="concentList" resultType="com.KHbiz.adminIoT.adminIoTDTO">
+		SELECT * FROM IOT order by num desc
+	</select>
+	
+	<select id="concentState" resultType="com.KHbiz.adminIoT.adminIoTDTO">
+		SELECT * FROM IOT where ADDUINO=#{adduino}
+	</select>
+	
+	<insert id="concentInsert" parameterType="com.KHbiz.adminIoT.adminIoTDTO">
+		insert into iot values(seq_iot.nextVal, #{adduino}, #{position}, #{con_state}, sysdate)
+	</insert>
+</mapper>

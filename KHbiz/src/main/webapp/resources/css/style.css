@@ -16,7 +16,7 @@
 
 html{
 	background:url('../img/bg.jpg') #dbe4e6;
-	overflow:hidden;
+	overflow:auto;
 }
 
 body{
@@ -45,9 +45,9 @@ section, footer, header, aside{
 
 
 #clock{
-	width:370px;
+	width:400px;
 	padding:40px;
-	margin:200px auto 60px;
+	margin:96px auto 60px;
 	position:relative;
 }
 
@@ -66,7 +66,7 @@ section, footer, header, aside{
 
 #clock .display{
 	text-align:center;
-	padding: 40px 20px 20px;
+	padding: 64px 16px 28px
 	border-radius:6px;
 	position:relative;
 	height: 54px;
@@ -152,7 +152,7 @@ section, footer, header, aside{
 	width: 28px;
 	height:50px;
 	display:inline-block;
-	margin:0 4px;
+	margin:42px 5px;
 }
 
 #clock .digits div span{
@@ -375,9 +375,9 @@ section, footer, header, aside{
 
 #clock .ampm{
 	position:absolute;
-	bottom:20px;
-	right:20px;
-	font-size:12px;
+	bottom: 20px;
+    right: 43px;
+	font-size:15px;
 }
 
 

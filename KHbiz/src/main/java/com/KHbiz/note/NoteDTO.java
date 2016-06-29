@@ -16,8 +16,6 @@ public class NoteDTO {
 	private String send_del;
 	private String to_del;
 	
-	
-	
 	public String getSend_del() {
 		return send_del;
 	}
@@ -60,17 +58,17 @@ public class NoteDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public int getState() {
-		return state;
-	}
-	public void setState(int state) {
-		this.state = state;
-	}
 	public String getReg_date() {
 		return reg_date;
 	}
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
+	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
 	}
 	public String getDivision() {
 		return division;
